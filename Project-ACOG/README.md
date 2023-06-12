@@ -1,15 +1,12 @@
 # Project ACOG
-Cisco Packet Tracer group project (Project name: ACOG)
----
-
 This network building exercise was completed as a group project named Project ACOG by our team. We successfully presented our project to the class and explained step by step how we set up our network.
 
 ## Contributors
 
-* Cedric Lambin
+* Nomade73
 * Gustavo 
 * Olga
-* Alenjandro
+* Alejandr0-1
 
 ## Components
 
@@ -147,4 +144,56 @@ Test result by opening a web browser page of a random PC and typing “web”:
 
 Success! Don’t mind the text as we used the FTP server to act as a web server, but just for this test.
 
-// More to add
+### SSH
+
+You can enable SSH on a Cisco device by entering the global configuration mode using the command "configure terminal".
+
+Generate an RSA key pair for SSH authentication using the "crypto key generate rsa" command. Choose the key size (e.g., 1024 or 2048 bits) and confirm the key generation.
+
+Configure the device's hostname using the "hostname" command. This step is necessary for SSH authentication.
+
+Create a user account with privilege level and password using the "username" command.
+
+Finally, enable SSH login using the "line vty" command to access the virtual terminal lines, and specify the transport input as SSH.
+
+
+# Building VLAN's
+# Step 1: **Determine VLAN Requirements**
+
+As a first step in our project we had to identified the purpose of VLANs, 
+such as separating departments, isolating traffic, or enhancing security.
+
+# Step 2: **Plan the VLAN Configuration**
+
+We determineted the VLAN IDs (VLAN tags) for each VLAN. These are numeric identifiers used to identify VLANs.
+After we decided whether to use static VLANs (manually assigned) or dynamic VLANs (assigned based on protocols like VLAN Trunking Protocol - VTP).
+In the end of this step we planned the IP addressing scheme for each VLAN if it included routing.
+
+# Step 3: **Configure Switch Ports**
+
+For configure switch ports we accessed the management interface of the network switch (via web interface or command-line interface).
+For each VLAN, we configureted the switch ports to be members of that VLAN.
+We assined the appropriate VLAN ID to each port.
+The last things to do in this step was:
+-Set the port mode to access mode for devices connecting to the VLAN.
+-Set the port mode to trunk mode for interconnecting switches or routers.
+
+# Step 4: **Create VLANs on the Switch**
+
+We had to again access the switch's management interface and then 
+navigate to the VLAN configuration section.
+Next step was create VLANs using the desired VLAN IDs from the earlier plan
+and assign a name to each VLAN for identification.
+
+# Step 5: **Configure VLAN Interfaces (Optional)**
+
+For routing between VLANs, we configureted VLAN interfaces on a Layer 3 switch or a router and
+assigned IP addresses to the VLAN interfaces, following the IP addressing scheme you planned.
+
+# Step 6: **Test and Verify**
+
+At the end we connected devices to the appropriate switch ports assigned to each VLAN.
+Is important to verify connectivity and ensure that devices within the same VLAN 
+can communicate while being isolated from devices in other VLANs.
+
+*Test inter-VLAN routing if configured.*
