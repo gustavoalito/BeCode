@@ -1,7 +1,7 @@
 ## PROGRESS REPORT
 
 
-**1 -
+# 1 -
 
 First step was to download the Ubuntu server's ISO file from the official Ubuntu page.
 The, when initially installing it via VirtualBox, I used the following pages to help with the steps:
@@ -12,7 +12,7 @@ For the partition, I chose to make it manually. From the free space available, I
 
 ---
 
-**2 -
+# 2 -
 
 Following the link for hardening the server, I installed any packs that were necessary to run the commands I'm used to: 
 - plocate (for the "locate" command), 
@@ -30,7 +30,7 @@ If I ever need to set the root's password, then I can follow this link: https://
 
 ---
 
-**3 -
+# 3 -
 
 Install "fail2ban": https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-22-04
 
@@ -38,7 +38,7 @@ Then, configure email: https://technicalramblings.com/blog/how-to-add-email-noti
 
 ---
 
-**4 -
+# 4 -
 
 Followed the video: https://www.youtube.com/watch?v=1csFmQeXHlg&t=462s
 
@@ -86,4 +86,3 @@ Pinging the server and client works and turning back on the internet, Kali has a
 Follow the steps in the server_hardening documentation, and the DHCP video also helps in allowing the DHCP connection. For further information (and it will be useful later when other services are added), I'll follow this tutorial: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04
 
 **DNS
-
