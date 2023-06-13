@@ -39,7 +39,7 @@ Set default policies:
 
 Allow ssh connections and enable the firewall:
 
-`ufw allow SSH`
+`ufw allow ssh`
 
 Verify the status with:
 
