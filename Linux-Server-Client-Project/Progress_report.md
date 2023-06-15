@@ -85,7 +85,7 @@ Pinging the server and client works and turning back on the internet, Kali has a
 
 Follow the steps in the server_hardening documentation, and the DHCP video also helps in allowing the DHCP connection. For further information (and it will be useful later when other services are added), I'll follow this tutorial: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04
 
-**DNS
+## DNS
 Followed this tutorial: https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04
 
 - LAN subnet is 10.40.0.0/16
@@ -97,7 +97,8 @@ Install 3 packages: bind9, bind9utils and bind9-doc
 
 Configuration file to be edited: /etc/bind/named.conf.options
 
-![[Pasted image 20230614101159.png]]
+![Pasted image 20230614101159](https://github.com/gustavoalito/BeCode/assets/133368766/551e5789-19a8-4a5f-8fdd-f0bcc1bdfe23)
+
 
 After you make the changes, check the syntax of the file with the `named-checkconf` command:
 
@@ -109,7 +110,8 @@ If you want to see more verbose output on a successful test, add the `-p` swit
 
 *Edit the named.conf.local file*
 
-![[Pasted image 20230614115956.png]]
+![Pasted image 20230614115956](https://github.com/gustavoalito/BeCode/assets/133368766/e0274094-b28b-4f26-9c15-c980171c9af1)
+
 
 create a directory to store the zone files we specified in the previous step.
 
@@ -127,7 +129,8 @@ First, copy the default db.local zone file to `/etc/bind/zones/example.org`:
 cp /etc/bind/db.local /etc/bind/zones/example.org
 ```
 
-![[Pasted image 20230614120316.png]]
+![Pasted image 20230614120316](https://github.com/gustavoalito/BeCode/assets/133368766/64f32e91-255a-4c6c-9138-dd72b7e1ba0a)
+
 
 Now, creating the reverse zone file is quite similar.
 
@@ -137,7 +140,8 @@ First, copy the default db.local zone file to `/etc/bind/zones/example.org.rev`
 cp /etc/bind/db.127 /etc/bind/zones/example.org.rev
 ```
 
-![[Pasted image 20230614120522.png]]
+![Pasted image 20230614120522](https://github.com/gustavoalito/BeCode/assets/133368766/3a51d1a6-fe18-4f29-866f-7293a019d217)
+
 
 - Restart bind9 (systemctl restart bind9)
 
@@ -160,7 +164,8 @@ eth0             UP             10.40.0.5/16
 
 Next, edit your `netplan` YAML file to include a DNS configuration that points to the private Bind DNS server. Typically, `netplan` configuration files are stored at `/etc/netplan`.
 
-![[Pasted image 20230614120946.png]]
+![Pasted image 20230614120946](https://github.com/gustavoalito/BeCode/assets/133368766/746a58ad-ce62-42e3-af48-1f4786e56d78)
+
 
 Once you the configuration is complete, test it with this command:
 
@@ -181,13 +186,15 @@ Using these commands, check whether they resolve into an address on a client mac
 - `nslookup client2.example.org`
 - `nslookup bindserver.example.org`
 
-![[Pasted image 20230614121300.png]]
+![Pasted image 20230614121300](https://github.com/gustavoalito/BeCode/assets/133368766/9b6ab633-e332-4df3-a23a-33993656b741)
+
 Success! They are all going through the DNS server (10.40.6.74).
 
 # Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!
 
 ---
 
+## HTTP, mariadb (internal website running GLPI)
 
 Install apache2
 
@@ -215,7 +222,8 @@ pass: mariaboss
 
 Test it via the command: `sudo mysql -u admin -p`
 
-![[Pasted image 20230614142431.png]]
+![Pasted image 20230614142431](https://github.com/gustavoalito/BeCode/assets/133368766/3475b059-c893-4f08-b5e4-2d58ee057a9a)
+
 
 Create a new database for GLPI. In the MariaDB shell, run the following commands:
 
@@ -251,11 +259,14 @@ Download link:
 `cd /tmp/ wget https://github.com/glpi-project/glpi/releases/download/10.0.7/glpi-10.0.7.tgz
 
 
-![[Pasted image 20230615105519.png]]
+![Pasted image 20230615105519](https://github.com/gustavoalito/BeCode/assets/133368766/ca897fef-1c3c-47f9-8a07-a5e004485981)
+
 
 Change the passwords of the accounts above.
 
 ---
+
+## Backup + cron job
 
 First things first. Check the server's timezone to be sure it is the correct one.
 
@@ -268,7 +279,8 @@ For the backup, I'll try to mount the partition I created for the backup, create
 
 The command `lsblk`  which lists information about all available block devices, including disks and partitions.
 
-![[Pasted image 20230615122836.png]]
+![Pasted image 20230615122836](https://github.com/gustavoalito/BeCode/assets/133368766/3bbe3944-695d-40b6-96f5-21a59ff9b906)
+
 
 It is **sda2**.
 
@@ -279,8 +291,11 @@ Located at: /usr/local/bin
 
 Backup script:
 
-![[Pasted image 20230615144034.png]]
-![[Pasted image 20230615144100.png]]
+![Pasted image 20230615144034](https://github.com/gustavoalito/BeCode/assets/133368766/5a1adeca-ca6f-4471-9594-e14c59ad7921)
+
+![Pasted image 20230615144100](https://github.com/gustavoalito/BeCode/assets/133368766/c25414c3-d375-4c2d-abfd-e6adae7c1eea)
+
+![ff2e-148d-4bcc-aaaf-83752c0712f7](https://github.com/gustavoalito/BeCode/assets/133368766/45fba618-e245-4980-a8f2-e51918ba9685)
 
 
 Reference for date formatting: https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
@@ -290,10 +305,12 @@ Created a cron job for every Mon, Wed and Fri at 09:13.
 Use the command `sudo crontab -e`
 
 
-![[Pasted image 20230615145219.png]]
+![Pasted image 20230615145219](https://github.com/gustavoalito/BeCode/assets/133368766/68bd1be3-3ebb-4cfb-a3a8-f89395af4fe0)
+
 
 ---
 
+## Setting up the client machine (Linux Mint)
 
 Downloaded Linux Mint xfce version (light version).
 
@@ -313,7 +330,8 @@ https://linuxmint-installation-guide.readthedocs.io/en/latest/partitioning.html
 5. Click "OK" to create the partition.
 
 
-![[Pasted image 20230615152346.png]]
+![Pasted image 20230615152346](https://github.com/gustavoalito/BeCode/assets/133368766/b82575e9-03e6-41da-9e5c-c674bb4634f3)
+
 
 1. Select the remaining free space and click the "+" button to create a new partition.
 2. Configure the partition as follows:
@@ -324,9 +342,10 @@ https://linuxmint-installation-guide.readthedocs.io/en/latest/partitioning.html
     - Mount point: Select "/".
 3. Click "OK" to create the partition.
 
-![[Pasted image 20230615152611.png]]
+![Pasted image 20230615152611](https://github.com/gustavoalito/BeCode/assets/133368766/cb5ce2e2-4d5a-4865-9bb7-1bf9b94895b6)
 
-![[Pasted image 20230615152638.png]]
+![Pasted image 20230615152638](https://github.com/gustavoalito/BeCode/assets/133368766/416dc517-1631-48b8-a86f-21f9d3cae17c)
+
 
 Verify the Separate /home Partition
 
@@ -334,6 +353,7 @@ Verify the Separate /home Partition
 2. Run the command `lsblk` to list the available block devices.
 3. Verify that you see two separate partitions, one mounted as "/" and the other mounted as "/home".
 
-![[Pasted image 20230615160311.png]]
+![Pasted image 20230615160311](https://github.com/gustavoalito/BeCode/assets/133368766/942a69d0-a446-41b0-90d4-32ef0c1a19fd)
+
 
 Install LibreOffice & Gimp. 
