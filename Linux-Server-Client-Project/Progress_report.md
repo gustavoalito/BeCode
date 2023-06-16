@@ -26,7 +26,7 @@ Since the root user in the Ubuntu server is by default disabled, I decided to le
 
 The connection is successful.
 
-If I ever need to set the root's password, then I can follow this link: https://www.server-world.info/en/note?os=Ubuntu_22.04&p=initial_conf&f=2
+If I ever need to set the root's word, then I can follow this link: https://www.server-world.info/en/note?os=Ubuntu_22.04&p=initial_conf&f=2
 
 ---
 
@@ -217,9 +217,6 @@ Create a new account called **admin** with the same capabilities as the **roo
 
 `GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
 
-usr: admin
-pass: mariaboss
-
 Test it via the command: `sudo mysql -u admin -p`
 
 ![Pasted image 20230614142431](https://github.com/gustavoalito/BeCode/assets/133368766/3475b059-c893-4f08-b5e4-2d58ee057a9a)
@@ -228,7 +225,7 @@ Test it via the command: `sudo mysql -u admin -p`
 Create a new database for GLPI. In the MariaDB shell, run the following commands:
 
 `CREATE DATABASE glpidb;
-`GRANT ALL PRIVILEGES ON glpidb.* TO 'glpiuser'@'localhost' IDENTIFIED BY 'glpiboss';
+`GRANT ALL PRIVILEGES ON glpidb.* TO 'glpiuser'@'localhost' IDENTIFIED BY 'password';
 `FLUSH PRIVILEGES;
 `EXIT;
 
