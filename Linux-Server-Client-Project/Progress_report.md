@@ -288,21 +288,21 @@ Located at: /usr/local/bin
 
 Backup script:
 
-![Pasted image 20230615144034](https://github.com/gustavoalito/BeCode/assets/133368766/5a1adeca-ca6f-4471-9594-e14c59ad7921)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/35c483ce-c8cc-4064-8f63-e2c29391031e)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/d42025a4-bf87-4434-9f34-4ca6b2c6c740)
 
-![Pasted image 20230615144100](https://github.com/gustavoalito/BeCode/assets/133368766/c25414c3-d375-4c2d-abfd-e6adae7c1eea)
 
 ![ff2e-148d-4bcc-aaaf-83752c0712f7](https://github.com/gustavoalito/BeCode/assets/133368766/45fba618-e245-4980-a8f2-e51918ba9685)
 
 
 Reference for date formatting: https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 
-Created a cron job for every Mon, Wed and Fri at 09:13.
+Created a cron job for everyday at 10h.
 
 Use the command `sudo crontab -e`
 
 
-![Pasted image 20230615145219](https://github.com/gustavoalito/BeCode/assets/133368766/68bd1be3-3ebb-4cfb-a3a8-f89395af4fe0)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/287f1bb0-7106-4447-86f6-9c08c828af62)
 
 
 ---
