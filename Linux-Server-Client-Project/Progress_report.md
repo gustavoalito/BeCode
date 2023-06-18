@@ -88,9 +88,9 @@ Follow the steps in the server_hardening documentation, and the DHCP video also 
 ## DNS
 Followed this tutorial: https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04
 
-- LAN subnet is 10.40.0.0/16
-- DNS server's (bindserver's) IP address is 10.40.6.74
-- Client's IP address is 10.40.0.7
+- LAN subnet is 192.168.24.0/24
+- DNS server's (bindserver's) IP address is 192.168.24.1
+- Client's IP address is 192.168.24.101
 - Domain is example.org
 
 Install 3 packages: bind9, bind9utils and bind9-doc
