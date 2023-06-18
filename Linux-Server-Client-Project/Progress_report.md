@@ -353,4 +353,4 @@ Verify the Separate /home Partition
 ![Pasted image 20230615160311](https://github.com/gustavoalito/BeCode/assets/133368766/942a69d0-a446-41b0-90d4-32ef0c1a19fd)
 
 
-Install LibreOffice & Gimp. 
+Install LibreOffice, Gimp & Mullvad browser. For Mullvad, you can follow this link: https://www.youtube.com/watch?v=vrgFzihf2rY&t=605s 
