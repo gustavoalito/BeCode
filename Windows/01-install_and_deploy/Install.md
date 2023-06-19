@@ -20,7 +20,7 @@ As it is a windows system, don't forget to **install/configure an antivirus and 
 ## Learning Objectives 
 - be able to install windows
 - be able to configure a windows
-- beable to configure an Antivirus and firewall.
+- be able to configure an Antivirus and firewall.
 
 ### Steps
 Take the following courses: 
