@@ -26,7 +26,7 @@ Since the root user in the Ubuntu server is by default disabled, I decided to le
 
 The connection is successful.
 
-If I ever need to set the root's password, then I can follow this link: https://www.server-world.info/en/note?os=Ubuntu_22.04&p=initial_conf&f=2
+If I ever need to set the root's word, then I can follow this link: https://www.server-world.info/en/note?os=Ubuntu_22.04&p=initial_conf&f=2
 
 ---
 
@@ -42,62 +42,63 @@ Then, configure email: https://technicalramblings.com/blog/how-to-add-email-noti
 
 Followed the video: https://www.youtube.com/watch?v=1csFmQeXHlg&t=462s
 
-The server's IP address is 10.40.6.74/16 (enp0s3).
+The server's IP address is 192.168.24.1/24 (enp0s8).
 That means:
 
 |   |   |
 |---|---|
-|IP Address:|10.40.6.74|
-|Network Address:|10.40.0.0|
-|Usable Host IP Range:|10.40.0.2 - 10.40.0.20|
-|Broadcast Address:|10.40.255.255|
-|Total Number of Hosts:|65.536|
-|Number of Usable Hosts:|65.534|
-|Subnet Mask:|255.255.0.0|
+|IP Address:|192.168.24.1|
+|Network Address:|192.168.24.0|
+|Usable Host IP Range:|192.168.24.1 - 192.168.24.254|
+|Broadcast Address:|192.168.24.255|
+|Total Number of Hosts:|256|
+|Number of Usable Hosts:|254|
+|Subnet Mask:|255.255.255.0|
 
 - Install isc-dhcp-server
 - edit the configuration file (sudo nano /etc/default/isc-dhcp-server)
-	- Edit the line where interfacev4 is: INTERFACEV4="enp0s3". Save it.
+	- Edit the line where interfacev4 is: INTERFACEV4="enp0s8". Save it.
 - Now, we're going to setup the IP pool in /etc/dhcp/dhcpd.conf
 	- Uncomment all the commands below the section that starts with "A slightly different..."
-	- Add the correct subnet: 10.40.0.0, subnet mask 255.255.0.0
-	- Range of IP addresses: 10.40.0.2 10.40.0.20
-	- DNS server server.example.org
-	- Domain name example.org
-	- Gateway 10.40.0.1
-	- Broadcast address 10.40.255.255
+	- Add the correct subnet: 192.168.24.0, subnet mask 255.255.255.0
+	- Range of IP addresses: 192.168.24.100 192.168.24.200
+	- DNS server 192.168.24.1
+	- Domain name "mylocaldomain.local"
+	- Gateway 192.168.24.1
+	- Broadcast address 192.168.24.255
 	- Save and close it.
 - Restart the dhcp service: sudo systemctl restart isc-dhcp-server
 - Check its status: sudo systemctl status isc-dhcp-server
 - Allow inbound connections from clients requesting an IP address
-	- sudo netstat -a,np | grep dhcp (this will show the port the dhcp is listening on). In this case, it's port 67 and UDP protocol.
+	- sudo netstat -anp | grep dhcp (this will show the port the dhcp is listening on). In this case, it's port 67 and UDP protocol.
 	-  sudo ufw allow 67/udp
 	- Check if firewall rule was correctly added: sudo ufw status.
 
 
 **Testing a connection to the DHCP server**
 
-The DHCP server is up and running, however, the only way I managed to make the client (temporarily, it is Kali) to obtain an IP address from the server's pool was by turning off the internet and restarting Kali.
-
-Pinging the server and client works and turning back on the internet, Kali has a correctly assigned IP address.
+Pinging the server and client works and the client machine has a correctly assigned IP address.
 
 *Firewall*
 
 Follow the steps in the server_hardening documentation, and the DHCP video also helps in allowing the DHCP connection. For further information (and it will be useful later when other services are added), I'll follow this tutorial: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04
 
-**DNS
+## DNS
 Followed this tutorial: https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04
 
-- LAN subnet is 10.40.0.0/16
-- DNS server's (bindserver's) IP address is 10.40.6.74
-- Client's IP address is 10.40.0.7
-- Domain is example.org
+- LAN subnet is 192.168.24.0/24
+- DNS server's (bindserver's) IP address is 192.168.24.1
+- Client's IP address is 192.168.24.101
+- Domain is mylocaldomain.local
 
 Install 3 packages: bind9, bind9utils and bind9-doc
 
 Configuration file to be edited: /etc/bind/named.conf.options
 
-![[Pasted image 20230614101159.png]]
+![Pasted image 20230614101159](https://github.com/gustavoalito/BeCode/assets/133368766/551e5789-19a8-4a5f-8fdd-f0bcc1bdfe23)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/4a138e5e-562c-4dd3-883c-635686de7245)
+
 
 After you make the changes, check the syntax of the file with the `named-checkconf` command:
 
@@ -109,7 +110,8 @@ If you want to see more verbose output on a successful test, add the `-p` swit
 
 *Edit the named.conf.local file*
 
-![[Pasted image 20230614115956.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/6a9b0573-1de5-4d11-83ef-f84a049a8335)
+
 
 create a directory to store the zone files we specified in the previous step.
 
@@ -119,48 +121,46 @@ mkdir /etc/bind/zones
 
 *Create the forward zone file*
 
-Now, we'll create a corresponding zone file `/etc/bind/zones/example.org`. The forward zone file allows the Bind DNS server to resolve names (like `bindserver.example.org`) to IP addresses (like `10.40.6.74`).
+Now, we'll create a corresponding zone file `/etc/bind/zones/db.fwd.mylocaldomain.local`. The forward zone file allows the Bind DNS server to resolve names (like `ns.mylocaldomain.local`) to IP addresses (like `192.168.24.1`).
 
-First, copy the default db.local zone file to `/etc/bind/zones/example.org`:
+First, copy the default db.local zone file to `/etc/bind/zones/db.fwd.mylocaldomain.local`:
 
 ```bash
-cp /etc/bind/db.local /etc/bind/zones/example.org
+cp /etc/bind/db.local /etc/bind/zones/db.fwd.mylocaldomain.local
 ```
-
-![[Pasted image 20230614120316.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/9f6f981a-57a3-4183-8413-ef5f08ea3977)
 
 Now, creating the reverse zone file is quite similar.
 
-First, copy the default db.local zone file to `/etc/bind/zones/example.org.rev`
+First, copy the default db.local zone file to `/etc/bind/zones/db.rev.mylocaldomain.local`
 
 ```bash
-cp /etc/bind/db.127 /etc/bind/zones/example.org.rev
+cp /etc/bind/db.127 /etc/bind/zones/db.rev.mylocaldomain.local
 ```
-
-![[Pasted image 20230614120522.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/ff613bbe-b86d-436b-9b3e-44fe93007622)
 
 - Restart bind9 (systemctl restart bind9)
 
-*Configure clients to use the configuration
+## Configure clients to use the configuration
 
 Once the Private Bind DNS server is configured, we can configure the clients to use it. Follow these steps for both `client1` and `client2`.
 
 First, check which interface is used for LAN connectivity with this command:
 
 ```bash
-ip -brief addr show to 10.40.0.0/16
+ip -brief addr show to 192.168.24.0/24
 
 ```
 
-The interface we need will be the first value displayed. For example, `eth1` in the output below:
+The interface we need will be the first value displayed. For example, `enp0s8` in the output below:
 
 ```bash
-eth0             UP             10.40.0.5/16
+enp0s8             UP             192.168.24.1/24
 ```
 
 Next, edit your `netplan` YAML file to include a DNS configuration that points to the private Bind DNS server. Typically, `netplan` configuration files are stored at `/etc/netplan`.
 
-![[Pasted image 20230614120946.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/0f58a027-59b0-4f8d-86f5-3c2f038e98e1)
 
 Once you the configuration is complete, test it with this command:
 
@@ -170,24 +170,27 @@ netplan try
 
 Press `ENTER` to accept the changes.
 
+Now, configure the `nameserver` for the file `etc/resolv.conf`
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2b3656b5-f25d-4f43-979c-5e8b2769d79c)
+
+
 ## Testing the configuration
 
 Using these commands, check whether they resolve into an address on a client machine:
 
-- `nslookup client1`
-- `nslookup client2`
-- `nslookup bindserver`
-- `nslookup client1.example.org`
-- `nslookup client2.example.org`
-- `nslookup bindserver.example.org`
+- `nslookup ns.mylocaldomain.local`
+- `nslookup mylocaldomain.local`
 
-![[Pasted image 20230614121300.png]]
-Success! They are all going through the DNS server (10.40.6.74).
+
+
+Mixed success. They are all going through the DNS server (192.168.24.1) but don't get resolved.
 
 # Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!
 
 ---
 
+## HTTP, mariadb (internal website running GLPI)
 
 Install apache2
 
@@ -210,17 +213,15 @@ Create a new account called **admin** with the same capabilities as the **roo
 
 `GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
 
-usr: admin
-pass: mariaboss
-
 Test it via the command: `sudo mysql -u admin -p`
 
-![[Pasted image 20230614142431.png]]
+![Pasted image 20230614142431](https://github.com/gustavoalito/BeCode/assets/133368766/3475b059-c893-4f08-b5e4-2d58ee057a9a)
+
 
 Create a new database for GLPI. In the MariaDB shell, run the following commands:
 
 `CREATE DATABASE glpidb;
-`GRANT ALL PRIVILEGES ON glpidb.* TO 'glpiuser'@'localhost' IDENTIFIED BY 'glpiboss';
+`GRANT ALL PRIVILEGES ON glpidb.* TO 'glpiuser'@'localhost' IDENTIFIED BY 'password';
 `FLUSH PRIVILEGES;
 `EXIT;
 
@@ -241,6 +242,8 @@ sudo ufw allow 443
 
 Installing GLPI on Ubunutu:
 
+- Connecting to the GLPI interface on the client via the browser: `192.168.1.24/glpi
+
 The easiest way is to follow this video: 
 https://www.youtube.com/watch?v=X3jbo6rFntI&t=458s
 
@@ -251,11 +254,14 @@ Download link:
 `cd /tmp/ wget https://github.com/glpi-project/glpi/releases/download/10.0.7/glpi-10.0.7.tgz
 
 
-![[Pasted image 20230615105519.png]]
+![Pasted image 20230615105519](https://github.com/gustavoalito/BeCode/assets/133368766/ca897fef-1c3c-47f9-8a07-a5e004485981)
+
 
 Change the passwords of the accounts above.
 
 ---
+
+## Backup + cron job
 
 First things first. Check the server's timezone to be sure it is the correct one.
 
@@ -268,7 +274,8 @@ For the backup, I'll try to mount the partition I created for the backup, create
 
 The command `lsblk`  which lists information about all available block devices, including disks and partitions.
 
-![[Pasted image 20230615122836.png]]
+![Pasted image 20230615122836](https://github.com/gustavoalito/BeCode/assets/133368766/3bbe3944-695d-40b6-96f5-21a59ff9b906)
+
 
 It is **sda2**.
 
@@ -279,21 +286,26 @@ Located at: /usr/local/bin
 
 Backup script:
 
-![[Pasted image 20230615144034.png]]
-![[Pasted image 20230615144100.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/35c483ce-c8cc-4064-8f63-e2c29391031e)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/d42025a4-bf87-4434-9f34-4ca6b2c6c740)
+
+
+![ff2e-148d-4bcc-aaaf-83752c0712f7](https://github.com/gustavoalito/BeCode/assets/133368766/45fba618-e245-4980-a8f2-e51918ba9685)
 
 
 Reference for date formatting: https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 
-Created a cron job for every Mon, Wed and Fri at 09:13.
+Created a cron job for everyday at 10h.
 
 Use the command `sudo crontab -e`
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2f83791c-7a04-4bef-84dd-90ff26758a1b)
 
-![[Pasted image 20230615145219.png]]
+The script will log its operations in the log file `/var/log/backup.log`, including errors. 
 
 ---
 
+## Setting up the client machine (Linux Mint)
 
 Downloaded Linux Mint xfce version (light version).
 
@@ -313,7 +325,8 @@ https://linuxmint-installation-guide.readthedocs.io/en/latest/partitioning.html
 5. Click "OK" to create the partition.
 
 
-![[Pasted image 20230615152346.png]]
+![Pasted image 20230615152346](https://github.com/gustavoalito/BeCode/assets/133368766/b82575e9-03e6-41da-9e5c-c674bb4634f3)
+
 
 1. Select the remaining free space and click the "+" button to create a new partition.
 2. Configure the partition as follows:
@@ -324,9 +337,10 @@ https://linuxmint-installation-guide.readthedocs.io/en/latest/partitioning.html
     - Mount point: Select "/".
 3. Click "OK" to create the partition.
 
-![[Pasted image 20230615152611.png]]
+![Pasted image 20230615152611](https://github.com/gustavoalito/BeCode/assets/133368766/cb5ce2e2-4d5a-4865-9bb7-1bf9b94895b6)
 
-![[Pasted image 20230615152638.png]]
+![Pasted image 20230615152638](https://github.com/gustavoalito/BeCode/assets/133368766/416dc517-1631-48b8-a86f-21f9d3cae17c)
+
 
 Verify the Separate /home Partition
 
@@ -334,6 +348,7 @@ Verify the Separate /home Partition
 2. Run the command `lsblk` to list the available block devices.
 3. Verify that you see two separate partitions, one mounted as "/" and the other mounted as "/home".
 
-![[Pasted image 20230615160311.png]]
+![Pasted image 20230615160311](https://github.com/gustavoalito/BeCode/assets/133368766/942a69d0-a446-41b0-90d4-32ef0c1a19fd)
 
-Install LibreOffice & Gimp. 
+
+Install LibreOffice, Gimp & Mullvad browser. For Mullvad, you can follow this link: https://www.youtube.com/watch?v=vrgFzihf2rY&t=605s 
