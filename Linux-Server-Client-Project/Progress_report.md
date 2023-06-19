@@ -70,16 +70,14 @@ That means:
 - Restart the dhcp service: sudo systemctl restart isc-dhcp-server
 - Check its status: sudo systemctl status isc-dhcp-server
 - Allow inbound connections from clients requesting an IP address
-	- sudo netstat -a,np | grep dhcp (this will show the port the dhcp is listening on). In this case, it's port 67 and UDP protocol.
+	- sudo netstat -anp | grep dhcp (this will show the port the dhcp is listening on). In this case, it's port 67 and UDP protocol.
 	-  sudo ufw allow 67/udp
 	- Check if firewall rule was correctly added: sudo ufw status.
 
 
 **Testing a connection to the DHCP server**
 
-The DHCP server is up and running, however, the only way I managed to make the client (temporarily, it is Kali) to obtain an IP address from the server's pool was by turning off the internet and restarting Kali.
-
-Pinging the server and client works and turning back on the internet, Kali has a correctly assigned IP address.
+Pinging the server and client works and the client machine has a correctly assigned IP address.
 
 *Firewall*
 
@@ -91,13 +89,15 @@ Followed this tutorial: https://www.cherryservers.com/blog/how-to-install-and-co
 - LAN subnet is 192.168.24.0/24
 - DNS server's (bindserver's) IP address is 192.168.24.1
 - Client's IP address is 192.168.24.101
-- Domain is example.org
+- Domain is mylocaldomain.local
 
 Install 3 packages: bind9, bind9utils and bind9-doc
 
 Configuration file to be edited: /etc/bind/named.conf.options
 
 ![Pasted image 20230614101159](https://github.com/gustavoalito/BeCode/assets/133368766/551e5789-19a8-4a5f-8fdd-f0bcc1bdfe23)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/4a138e5e-562c-4dd3-883c-635686de7245)
 
 
 After you make the changes, check the syntax of the file with the `named-checkconf` command:
@@ -112,6 +112,7 @@ If you want to see more verbose output on a successful test, add the `-p` swit
 
 ![Pasted image 20230614115956](https://github.com/gustavoalito/BeCode/assets/133368766/e0274094-b28b-4f26-9c15-c980171c9af1)
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/f8142243-eb6f-4c76-b40b-410ce0c9756b)
 
 create a directory to store the zone files we specified in the previous step.
 
@@ -121,12 +122,12 @@ mkdir /etc/bind/zones
 
 *Create the forward zone file*
 
-Now, we'll create a corresponding zone file `/etc/bind/zones/example.org`. The forward zone file allows the Bind DNS server to resolve names (like `bindserver.example.org`) to IP addresses (like `10.40.6.74`).
+Now, we'll create a corresponding zone file `/etc/bind/zones/db.fwd.mylocaldomain.local`. The forward zone file allows the Bind DNS server to resolve names (like `ns.mylocaldomain.local`) to IP addresses (like `192.168.24.1`).
 
-First, copy the default db.local zone file to `/etc/bind/zones/example.org`:
+First, copy the default db.local zone file to `/etc/bind/zones/db.fwd.mylocaldomain.local`:
 
 ```bash
-cp /etc/bind/db.local /etc/bind/zones/example.org
+cp /etc/bind/db.local /etc/bind/zones/db.fwd.mylocaldomain.local
 ```
 
 ![Pasted image 20230614120316](https://github.com/gustavoalito/BeCode/assets/133368766/64f32e91-255a-4c6c-9138-dd72b7e1ba0a)
@@ -134,10 +135,10 @@ cp /etc/bind/db.local /etc/bind/zones/example.org
 
 Now, creating the reverse zone file is quite similar.
 
-First, copy the default db.local zone file to `/etc/bind/zones/example.org.rev`
+First, copy the default db.local zone file to `/etc/bind/zones/db.rev.mylocaldomain.local`
 
 ```bash
-cp /etc/bind/db.127 /etc/bind/zones/example.org.rev
+cp /etc/bind/db.127 /etc/bind/zones/db.rev.mylocaldomain.local
 ```
 
 ![Pasted image 20230614120522](https://github.com/gustavoalito/BeCode/assets/133368766/3a51d1a6-fe18-4f29-866f-7293a019d217)
@@ -152,14 +153,14 @@ Once the Private Bind DNS server is configured, we can configure the clients to 
 First, check which interface is used for LAN connectivity with this command:
 
 ```bash
-ip -brief addr show to 10.40.0.0/16
+ip -brief addr show to 192.168.24.0/24
 
 ```
 
-The interface we need will be the first value displayed. For example, `eth1` in the output below:
+The interface we need will be the first value displayed. For example, `enp0s8` in the output below:
 
 ```bash
-eth0             UP             10.40.0.5/16
+enp0s8             UP             192.168.24.1/24
 ```
 
 Next, edit your `netplan` YAML file to include a DNS configuration that points to the private Bind DNS server. Typically, `netplan` configuration files are stored at `/etc/netplan`.
@@ -179,16 +180,12 @@ Press `ENTER` to accept the changes.
 
 Using these commands, check whether they resolve into an address on a client machine:
 
-- `nslookup client1`
-- `nslookup client2`
-- `nslookup bindserver`
-- `nslookup client1.example.org`
-- `nslookup client2.example.org`
-- `nslookup bindserver.example.org`
+- `nslookup ns.mylocaldomain.local`
+- `nslookup mylocaldomain.local`
 
 ![Pasted image 20230614121300](https://github.com/gustavoalito/BeCode/assets/133368766/9b6ab633-e332-4df3-a23a-33993656b741)
 
-Success! They are all going through the DNS server (10.40.6.74).
+Success! They are all going through the DNS server (192.168.24.1).
 
 # Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!
 
