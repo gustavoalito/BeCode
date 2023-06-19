@@ -42,30 +42,30 @@ Then, configure email: https://technicalramblings.com/blog/how-to-add-email-noti
 
 Followed the video: https://www.youtube.com/watch?v=1csFmQeXHlg&t=462s
 
-The server's IP address is 10.40.6.74/16 (enp0s3).
+The server's IP address is 192.168.24.1/24 (enp0s8).
 That means:
 
 |   |   |
 |---|---|
-|IP Address:|10.40.6.74|
-|Network Address:|10.40.0.0|
-|Usable Host IP Range:|10.40.0.2 - 10.40.0.20|
-|Broadcast Address:|10.40.255.255|
-|Total Number of Hosts:|65.536|
-|Number of Usable Hosts:|65.534|
-|Subnet Mask:|255.255.0.0|
+|IP Address:|192.168.24.1|
+|Network Address:|192.168.24.0|
+|Usable Host IP Range:|192.168.24.1 - 192.168.24.254|
+|Broadcast Address:|192.168.24.255|
+|Total Number of Hosts:|256|
+|Number of Usable Hosts:|254|
+|Subnet Mask:|255.255.255.0|
 
 - Install isc-dhcp-server
 - edit the configuration file (sudo nano /etc/default/isc-dhcp-server)
-	- Edit the line where interfacev4 is: INTERFACEV4="enp0s3". Save it.
+	- Edit the line where interfacev4 is: INTERFACEV4="enp0s8". Save it.
 - Now, we're going to setup the IP pool in /etc/dhcp/dhcpd.conf
 	- Uncomment all the commands below the section that starts with "A slightly different..."
-	- Add the correct subnet: 10.40.0.0, subnet mask 255.255.0.0
-	- Range of IP addresses: 10.40.0.2 10.40.0.20
-	- DNS server server.example.org
-	- Domain name example.org
-	- Gateway 10.40.0.1
-	- Broadcast address 10.40.255.255
+	- Add the correct subnet: 192.168.24.0, subnet mask 255.255.255.0
+	- Range of IP addresses: 192.168.24.100 192.168.24.200
+	- DNS server 192.168.24.1
+	- Domain name "mylocaldomain.local"
+	- Gateway 192.168.24.1
+	- Broadcast address 192.168.24.255
 	- Save and close it.
 - Restart the dhcp service: sudo systemctl restart isc-dhcp-server
 - Check its status: sudo systemctl status isc-dhcp-server
