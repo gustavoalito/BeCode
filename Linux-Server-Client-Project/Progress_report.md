@@ -246,6 +246,8 @@ sudo ufw allow 443
 
 Installing GLPI on Ubunutu:
 
+- Connecting to the GLPI interface on the client via the browser: `192.168.1.24/glpi
+
 The easiest way is to follow this video: 
 https://www.youtube.com/watch?v=X3jbo6rFntI&t=458s
 
