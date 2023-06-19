@@ -24,10 +24,10 @@ Set up the following Linux infrastructure:
 2. One workstation running a desktop environment and the following apps:
     - LibreOffice
     - Gimp
-    - A web-browser
+    - Mullvad browser
     - **Required** 
         1. This workstation uses automatic addressing
-        2. The /home folder is located on a separate partition, same disk
+        2. The /home folder is located on a separate partition, same disk 
     - **Optional**
         1. Propose and implement a solution to remotely help a user
 
