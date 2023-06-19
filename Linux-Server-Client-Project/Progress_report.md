@@ -5,9 +5,11 @@
 This exercise requires a server and a client machine. Both systems were downloaded as virtual machines in virtualbox and set up with the Host-only network adapters. This would ensure no internet interferance with DHCP and DNS services. This is a test environment. 
 
 UBUNTU SERVER 22.04
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/f8d11ec4-6d39-4323-b6e1-5e3819138a9d)
 
 Linux Mint client XFCE
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/b39b89f6-36ef-45a2-9774-d5dc3fa29099)
 
 # 1 -
