@@ -110,9 +110,8 @@ If you want to see more verbose output on a successful test, add the `-p` swit
 
 *Edit the named.conf.local file*
 
-![Pasted image 20230614115956](https://github.com/gustavoalito/BeCode/assets/133368766/e0274094-b28b-4f26-9c15-c980171c9af1)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/6a9b0573-1de5-4d11-83ef-f84a049a8335)
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/f8142243-eb6f-4c76-b40b-410ce0c9756b)
 
 create a directory to store the zone files we specified in the previous step.
 
@@ -129,9 +128,7 @@ First, copy the default db.local zone file to `/etc/bind/zones/db.fwd.mylocaldo
 ```bash
 cp /etc/bind/db.local /etc/bind/zones/db.fwd.mylocaldomain.local
 ```
-
-![Pasted image 20230614120316](https://github.com/gustavoalito/BeCode/assets/133368766/64f32e91-255a-4c6c-9138-dd72b7e1ba0a)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/9f6f981a-57a3-4183-8413-ef5f08ea3977)
 
 Now, creating the reverse zone file is quite similar.
 
@@ -140,13 +137,11 @@ First, copy the default db.local zone file to `/etc/bind/zones/db.rev.mylocaldo
 ```bash
 cp /etc/bind/db.127 /etc/bind/zones/db.rev.mylocaldomain.local
 ```
-
-![Pasted image 20230614120522](https://github.com/gustavoalito/BeCode/assets/133368766/3a51d1a6-fe18-4f29-866f-7293a019d217)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/ff613bbe-b86d-436b-9b3e-44fe93007622)
 
 - Restart bind9 (systemctl restart bind9)
 
-*Configure clients to use the configuration
+## Configure clients to use the configuration
 
 Once the Private Bind DNS server is configured, we can configure the clients to use it. Follow these steps for both `client1` and `client2`.
 
@@ -165,8 +160,7 @@ enp0s8             UP             192.168.24.1/24
 
 Next, edit your `netplan` YAML file to include a DNS configuration that points to the private Bind DNS server. Typically, `netplan` configuration files are stored at `/etc/netplan`.
 
-![Pasted image 20230614120946](https://github.com/gustavoalito/BeCode/assets/133368766/746a58ad-ce62-42e3-af48-1f4786e56d78)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/0f58a027-59b0-4f8d-86f5-3c2f038e98e1)
 
 Once you the configuration is complete, test it with this command:
 
@@ -176,6 +170,11 @@ netplan try
 
 Press `ENTER` to accept the changes.
 
+Now, configure the `nameserver` for the file `etc/resolv.conf`
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2b3656b5-f25d-4f43-979c-5e8b2769d79c)
+
+
 ## Testing the configuration
 
 Using these commands, check whether they resolve into an address on a client machine:
@@ -183,9 +182,9 @@ Using these commands, check whether they resolve into an address on a client mac
 - `nslookup ns.mylocaldomain.local`
 - `nslookup mylocaldomain.local`
 
-![Pasted image 20230614121300](https://github.com/gustavoalito/BeCode/assets/133368766/9b6ab633-e332-4df3-a23a-33993656b741)
 
-Success! They are all going through the DNS server (192.168.24.1).
+
+Mixed success. They are all going through the DNS server (192.168.24.1) but don't get resolved.
 
 # Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!
 
@@ -300,9 +299,9 @@ Created a cron job for everyday at 10h.
 
 Use the command `sudo crontab -e`
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2f83791c-7a04-4bef-84dd-90ff26758a1b)
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/287f1bb0-7106-4447-86f6-9c08c828af62)
-
+The script will log its operations in the log file `/var/log/backup.log`, including errors. 
 
 ---
 
