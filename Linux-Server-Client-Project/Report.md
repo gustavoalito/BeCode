@@ -314,6 +314,8 @@ Use the command `sudo crontab -e`
 
 The script will log its operations in the log file `/var/log/backup.log`, including errors. 
 
+*NOTE: If a backup is ever needed to be restored, use the command `tar xvpfz backup.tgz -C /` inside the backup folder.
+
 ---
 
 ## Setting up the client machine (Linux Mint)
