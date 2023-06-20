@@ -2,7 +2,7 @@
 
 ### General considerations
 
-This exercise requires a server and a client machine. Both systems were downloaded as virtual machines in virtualbox and set up with the Host-only network adapters. This would ensure no internet interferance with DHCP and DNS services. This is a test environment. 
+This exercise requires a server and a client machine. Both systems were downloaded as virtual machines in Virtualbox and set up with Host-only network adapters. This would ensure no internet interference with DHCP and DNS services. This is a test environment. 
 
 UBUNTU SERVER 22.04
 
@@ -14,12 +14,14 @@ Linux Mint client XFCE
 
 # 1 -
 
-First step was to download the Ubuntu server's ISO file from the official Ubuntu page.
-The, when initially installing it via VirtualBox, I used the following pages to help with the steps:
+The first step was to download the Ubuntu server's ISO file from the official Ubuntu page.
+Then, when initially installing it via VirtualBox, I used the following pages to help with the steps:
 
 For the Ubuntu server initial install: https://www.youtube.com/watch?v=YtH9D2SqBqA
 
 For the partition, I chose to make it manually. From the free space available, I created a partition of 2GB and mounted it into "mnt/backup".
+
+For the SSH part, I'm basing myself on the following: Linux-Server-Client-Project/Server_hardenning.md
 
 ---
 
