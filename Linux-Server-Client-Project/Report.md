@@ -98,9 +98,21 @@ Apply the changes by running the following commands:
 `sudo netplan apply` 
 That’s it. The static IP address is configured on the Ubuntu system.
 
+Now you can disable the NAT network adapter's DHCP option. And of course, restart the Ubuntu server.
+
 **Testing a connection to the DHCP server**
 
+1st and foremost, the client machine, in this case, Linux Mint xfce, needs to have the DHCP's address configured as its `nameserver`.
+
+To do that, we'll need to configure `/etc/resolv.conf` and edit the nameserver to the DHCP's IP address:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/5ce346d0-8918-4ba2-8a86-6ec602b44025)
+
 Pinging the server and client works and the client machine has a correctly assigned IP address.
+
+However, this is not enough, as the client machine relies on the DHCP server for the DNS part as well. We'll configure the DNS server shortly. Meanwhile, we can update and upgrade the client machine by temporarily setting its network adapter to Bridged or NAT to have correct access to the internet and update/upgrade all the packages. 
+
+=> To check the IP addresses leasing from the DHCP server, use the command `dhcp-lease-list`
 
 *Firewall*
 
