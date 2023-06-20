@@ -130,6 +130,8 @@ Install 3 packages: bind9, bind9utils and bind9-doc
 
 Configuration file to be edited: /etc/bind/named.conf.options
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/4435111a-81bb-45f2-8430-2434ecee0f6c)
+
 ![Pasted image 20230614101159](https://github.com/gustavoalito/BeCode/assets/133368766/551e5789-19a8-4a5f-8fdd-f0bcc1bdfe23)
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/4a138e5e-562c-4dd3-883c-635686de7245)
