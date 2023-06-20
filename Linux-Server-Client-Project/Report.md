@@ -2,15 +2,7 @@
 
 ### General considerations
 
-This exercise requires a server and a client machine. Both systems were downloaded as virtual machines in Virtualbox and set up with Host-only network adapters. This would ensure no internet interference with DHCP and DNS services. This is a test environment. 
-
-UBUNTU SERVER 22.04
-
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/f8d11ec4-6d39-4323-b6e1-5e3819138a9d)
-
-Linux Mint client XFCE
-
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/b39b89f6-36ef-45a2-9774-d5dc3fa29099)
+NAT network
 
 # 1 -
 
@@ -44,14 +36,6 @@ If I ever need to set the root's word, then I can follow this link: https://www.
 ---
 
 # 3 -
-
-Install "fail2ban": https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-22-04
-
-Then, configure email: https://technicalramblings.com/blog/how-to-add-email-notifications-to-fail2ban/#adding-the-action => This part didn't work.
-
----
-
-# 4 -
 
 Followed the video: https://www.youtube.com/watch?v=1csFmQeXHlg&t=462s
 
