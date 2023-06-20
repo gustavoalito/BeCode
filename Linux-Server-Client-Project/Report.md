@@ -4,6 +4,8 @@
 
 NAT network
 
+To get started, the NAT network adapter will be initialized with DHCP enabled. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. Down in the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
+
 # 1 -
 
 The first step was to download the Ubuntu server's ISO file from the official Ubuntu page.
@@ -21,13 +23,13 @@ For the partition, I chose to make it manually. From the free space available, I
 
 Following the link for hardening the server, I installed any packs that were necessary to run the commands I'm used to: 
 - plocate (for the "locate" command), 
-- net-tools (for the "ifconfig" command) .
+- net-tools (for the "ifconfig" command).
 
 The changes in the ssh_config file were the same as the ones from the documentation. 
 
-*SSH-ing from Kali to the server* 
+*SSH-ing from the client to the server* 
 
-Since the root user in the Ubuntu server is by default disabled, I decided to leave it like this for security reasons. Therefore, I'll test an SSH connection from my Kali to the server using my "boss" user.
+Since the root user in the Ubuntu server is by default disabled, I decided to leave it like this for security reasons. Therefore, I'll test an SSH connection from my client to the server using my "boss" user.
 
 The connection is successful.
 
@@ -39,38 +41,62 @@ If I ever need to set the root's word, then I can follow this link: https://www.
 
 Followed the video: https://www.youtube.com/watch?v=1csFmQeXHlg&t=462s
 
-The server's IP address is 192.168.24.1/24 (enp0s8).
+Do the `ip a` command to gather the IP address and interface name
+
+enp0s3 interface
+DHCP server's IP 10.0.2.5/25
+
+IP Address:	10.0.2.0
+Network Address:	10.0.2.0
+Usable Host IP Range:	10.0.2.1 - 10.0.2.254
+Broadcast Address:	10.0.2.255
+Total Number of Hosts:	256
+Number of Usable Hosts:	254
+Subnet Mask:	255.255.255.0
+
+The server's IP address is 10.0.2.5/24 and interface enp0s3.
 That means:
 
 |   |   |
 |---|---|
-|IP Address:|192.168.24.1|
-|Network Address:|192.168.24.0|
-|Usable Host IP Range:|192.168.24.1 - 192.168.24.254|
-|Broadcast Address:|192.168.24.255|
+|IP Address:|10.0.2.5|
+|Network Address:|10.0.2.0|
+|Usable Host IP Range:|10.0.2.100 - 10.0.2.254|
+|Broadcast Address:|10.0.2.255|
 |Total Number of Hosts:|256|
 |Number of Usable Hosts:|254|
 |Subnet Mask:|255.255.255.0|
 
 - Install isc-dhcp-server
 - edit the configuration file (sudo nano /etc/default/isc-dhcp-server)
-	- Edit the line where interfacev4 is: INTERFACEV4="enp0s8". Save it.
-- Now, we're going to setup the IP pool in /etc/dhcp/dhcpd.conf
+	- Edit the line where interfacev4 is: INTERFACEV4="enp0s3". Save it.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/95f85305-ce45-4e44-b539-b0b80ff47713)
+
+- Now, we're going to set up the IP pool in /etc/dhcp/dhcpd.conf
 	- Uncomment all the commands below the section that starts with "A slightly different..."
-	- Add the correct subnet: 192.168.24.0, subnet mask 255.255.255.0
-	- Range of IP addresses: 192.168.24.100 192.168.24.200
-	- DNS server 192.168.24.1
-	- Domain name "mylocaldomain.local"
-	- Gateway 192.168.24.1
-	- Broadcast address 192.168.24.255
-	- Save and close it.
+	
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/df857d40-737b-4124-bd20-ad9e0ea57e7e)
+
 - Restart the dhcp service: sudo systemctl restart isc-dhcp-server
-- Check its status: sudo systemctl status isc-dhcp-server
+- Check its status: sudo systemctl status isc-DHCP-server
 - Allow inbound connections from clients requesting an IP address
 	- sudo netstat -anp | grep dhcp (this will show the port the dhcp is listening on). In this case, it's port 67 and UDP protocol.
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/39af10ae-1add-46b3-8ef1-27b0670796f9)
 	-  sudo ufw allow 67/udp
-	- Check if firewall rule was correctly added: sudo ufw status.
+	- Check if the firewall rule was correctly added: `sudo ufw status verbose`.
 
+## Setting up a static IP address for the Ubuntu server
+
+Create or edit the network configuration file under the `/etc/netplan` directory. Create a configuration file and edit it in an editor:
+`sudo nano /etc/netplan/01-netcfg.yaml` 
+Add the network configuration in YAML format as below:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/a66c2bf2-ba08-4055-823a-8bb86e97bb80)
+
+Apply the changes by running the following commands:
+`sudo netplan apply` 
+That’s it. The static IP address is configured on the Ubuntu system.
 
 **Testing a connection to the DHCP server**
 
