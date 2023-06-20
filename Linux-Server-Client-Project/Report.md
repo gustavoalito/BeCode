@@ -21,7 +21,7 @@ For the Ubuntu server initial install: https://www.youtube.com/watch?v=YtH9D2SqB
 
 For the partition, I chose to make it manually. From the free space available, I created a partition of 2GB and mounted it into "mnt/backup".
 
-For the SSH part, I'm basing myself on the following [link](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Server_hardenning.md)
+=> For the firewall and SSH parts, I'm basing myself on the following [link](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Server_hardenning.md)
 
 ---
 
