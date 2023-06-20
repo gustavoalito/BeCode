@@ -132,18 +132,54 @@ Configuration file to be edited: /etc/bind/named.conf.options
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/4435111a-81bb-45f2-8430-2434ecee0f6c)
 
-![Pasted image 20230614101159](https://github.com/gustavoalito/BeCode/assets/133368766/551e5789-19a8-4a5f-8fdd-f0bcc1bdfe23)
+These forwarders will be used if the DNS server needs to resolve domain names outside the configured zone.
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/4a138e5e-562c-4dd3-883c-635686de7245)
+Save the changes and exit the text editor.
 
+### Configure the DNS zone:
+
+Open the Bind9 configuration file for the zone using a text editor:
+`sudo nano /etc/bind/named.conf.default-zones`
+Locate the section that begins with zone "." {. Inside that section, find the line that starts with type hint;. Comment out that line by adding a // at the beginning.
+Add the following zone configuration below the commented line:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/e36951ab-ec53-447f-be57-0e8396612f1e)
+
+This configuration specifies that the DNS server will be authoritative for the example.org domain and will use the specified zone file.
+
+Save the changes and exit the text editor.
 
 After you make the changes, check the syntax of the file with the `named-checkconf` command:
 
 ```bash
 named-checkconf /etc/bind/named.conf.options
 ```
+Don't mind the comments on "zones". Anything else should be checked though.
 
-If you want to see more verbose output on a successful test, add the `-p` switch to the command (`named-checkconf -p`).
+=> If you want to see more verbose output on a successful test, add the `-p` switch to the command (`named-checkconf -p`).
+
+### Create the zone file
+
+Go to the `/etc/bind directory`. Copy the empty zone file (like a template) so we can work on it:
+
+`sudo cp db.empty db.example.org` Then, open the db.example.org file for editing.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/8d0ef494-77b8-4afe-b7e3-d9b83c1beb33)
+
+In the above configuration:
+
+- **$TTL** defines the default Time-to-Live value for the records in the zone file.
+- **SOA** specifies the Start of Authority record, including the primary nameserver and the contact email address.
+- **NS** defines the nameserver record for the zone.
+- **A** records map hostnames to IP addresses. In this case, server.example.org is assigned the IP address 10.0.2.5, and client1 is assigned the IP address 10.0.2.101.
+
+Save the changes and exit the text editor.
+
+Restart the bind9 server for the changes to take effect.
+
+`sudo service bind9 restart`
+
+
 
 *Edit the named.conf.local file*
 
