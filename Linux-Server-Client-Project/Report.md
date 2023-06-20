@@ -338,7 +338,7 @@ Change the passwords of the accounts above.
 
 First things first. Check the server's timezone to be sure it is the correct one.
 
-use the command `timedatectl
+use the command timedatectl:
 `timedatectl set-timezone Europe/Brussels`
 
 Further info: https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-check-and-set-timezone-in-ubuntu-20-04/
