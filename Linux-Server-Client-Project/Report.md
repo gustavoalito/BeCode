@@ -469,8 +469,8 @@ The command `lsblk`  which lists information about all available block devices, 
 
 It is **sda2**.
 
-Script named = backup_conf_files.sh
-Located at: /usr/local/bin
+Script named: **backup_conf_files.sh**
+Located at: **/usr/local/bin**
 
 - Reference: https://ubuntu.com/server/docs/backups-shell-scripts
 
@@ -485,11 +485,14 @@ Backup script:
 
 Test it by running it: `sudo ./backup_conf_files.sh`
 
-Note that you'll need to manually mount the partition in order to see the backup: `mount /dev/sda2 /mnt/backup`
+=> Note that you'll need to manually mount the partition in order to see the backup once it's finished: `mount /dev/sda2 /mnt/backup` and then unmount it `umount /mnt/backup`.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/ee8a96a7-851d-49af-907a-b7477342d18c)
+
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/70a0a4e8-b75b-44e4-a193-b8154394cb7d)
 
-=> Don't forget to unmount it, making sure you navigate away from the directory (otherwise it will not be able to unmount the partition): `sudo umount /mnt/backup` 
+=> I repeat, don't forget to unmount it, making sure you navigate away from the directory (otherwise it will not be able to unmount the partition): `sudo umount /mnt/backup` 
 
 Reference for date formatting: https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 
