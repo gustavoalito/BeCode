@@ -281,7 +281,7 @@ Reload apache2:
 
 `sudo systemctl reload apache2`
 
-## Install MariaDB (MySQL) server
+### Install MariaDB (MySQL) server
 
 `sudo apt install mariadb-server`
 
