@@ -113,6 +113,7 @@ Pinging the server and client works and the client machine has a correctly assig
 However, this is not enough, as the client machine relies on the DHCP server for the DNS part as well. We'll configure the DNS server shortly. Meanwhile, we can update and upgrade the client machine by temporarily setting its network adapter to Bridged or NAT to have correct access to the internet and update/upgrade all the packages. 
 
 => To check the IP addresses leasing from the DHCP server, use the command `dhcp-lease-list`
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/11e13107-0f65-4887-9f1f-7092015f2079)
 
 *Firewall*
 
