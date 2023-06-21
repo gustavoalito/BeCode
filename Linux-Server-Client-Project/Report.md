@@ -21,7 +21,7 @@
 - [Backup + cron job](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#backup--cron-job)
 - [Setting up the client machine (Linux Mint)](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-the-client-machine-linux-mint)
 - [Troubleshooting](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#troubleshooting)
-- [Lessons-learned](
+- [Lessons-learned](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#lessons-learned)
 
 ---
 
