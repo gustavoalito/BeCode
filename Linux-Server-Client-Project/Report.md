@@ -476,18 +476,26 @@ Located at: /usr/local/bin
 
 Backup script:
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/35c483ce-c8cc-4064-8f63-e2c29391031e)
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/d42025a4-bf87-4434-9f34-4ca6b2c6c740)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2403e9a2-4e28-4438-a25a-eb1631def1d6)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/cbffae19-55eb-437c-99c0-6141bed76154)
 
 ![ff2e-148d-4bcc-aaaf-83752c0712f7](https://github.com/gustavoalito/BeCode/assets/133368766/45fba618-e245-4980-a8f2-e51918ba9685)
 
+=> Make sure the script has the correct permissions. In this case, it is owned by root. No problem with that. Just add execution permissions to it: `sudo chmod +x backup_conf_files.sh`
+
+Test it by running it: `sudo ./backup_conf_files.sh`
+
+Note that you'll need to manually mount the partition in order to see the backup: `mount /dev/sda2 /mnt/backup`
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/70a0a4e8-b75b-44e4-a193-b8154394cb7d)
+
+=> Don't forget to unmount it, making sure you navigate away from the directory (otherwise it will not be able to unmount the partition): `sudo umount /mnt/backup` 
 
 Reference for date formatting: https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 
-Created a cron job for everyday at 10h.
+Created a cron job to run this backup script once a week.
 
-Use the command `sudo crontab -e`
+Use the command `sudo crontab -e`. If you don't have this package, install it `sudo apt install cron`
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/2f83791c-7a04-4bef-84dd-90ff26758a1b)
 
