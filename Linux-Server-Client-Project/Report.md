@@ -492,8 +492,6 @@ Test it by running it: `sudo ./backup_conf_files.sh`
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/ee8a96a7-851d-49af-907a-b7477342d18c)
 
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/70a0a4e8-b75b-44e4-a193-b8154394cb7d)
-
 => I repeat, don't forget to unmount it, making sure you navigate away from the directory (otherwise it will not be able to unmount the partition): `sudo umount /mnt/backup` 
 
 Reference for date formatting: https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
