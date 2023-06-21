@@ -2,9 +2,17 @@
 
 ### General considerations
 
-+NAT network+
+**NAT network**
 
-The NAT network adapter will be initialized with DHCP enabled to get started. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. In the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
+Creating a NAT network is an easier way to manage the VMs subnet in VirtualBox. You can set it up as shown in the screenshot(s) below. I'm using the network IP 10.0.2.0/24. That means that all VMs using this NAT network adapter will fall into this subnet and will also have internet access.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/b67c67f2-c919-4cbe-856d-2cbfd8e7fe0a)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/c1334d2b-a6ac-48ce-8449-190f545feddc)
+
+Please note the option "Enable DHCP". Later in the process, this option will be disabled. But to get started, since there's no other VM under this subnet, then the 1st VM needs to get its IP address somehow.
+
+Hence, the NAT network adapter will be initialized with DHCP enabled to get started. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. In the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
 
 # Setting up the Ubuntu server
 
@@ -449,7 +457,7 @@ https://linuxmint-installation-guide.readthedocs.io/en/latest/partitioning.html
     - Size: Leave the remaining space as it is to be used for the root partition.
     - Type for the new partition: Select "Logical".
     - Location for the new partition: Select "Beginning of this space".
-    - Use as: Select "Ext4 journaling file system".
+    - Select "Ext4 journaling file system".
     - Mount point: Select "/".
 3. Click "OK" to create the partition.
 
@@ -468,3 +476,16 @@ Verify the Separate /home Partition
 
 
 Install LibreOffice, Gimp & Mullvad browser. For Mullvad, you can follow this link: https://www.youtube.com/watch?v=vrgFzihf2rY&t=605s => or simply search for it in the "Software Manager" and install it from there. It's way easier ;)
+
+### Troubleshooting
+
+The file /etc/resolv.conf is dynamically changing after a system or network service restart. This can cause your browser to not be able to redirect requests. There are ways of working around this. 
+
+1 - You can create a simple script to change the settings to the correct DHCP IP address and run it at every system startup.
+2 - Or you can try to force the settings in the network configuration
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/a81839ce-1e8c-4595-9d42-2a117aae7f10)
+And check the resolv.conf file status: `sudo resolvectl status`
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/42d1fcb0-42ad-413a-a04f-c9e5545357f0)
+
+As long as you have a connection to the outside world and can update packages, you are good to go :)
+
