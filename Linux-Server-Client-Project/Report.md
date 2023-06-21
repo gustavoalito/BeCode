@@ -362,6 +362,16 @@ Test connection using the default glpi user and password from the screenshot abo
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/f3687d9c-49fa-46e5-86f7-feb87418eabd)
 
+One last trick, let's secure (and at the same time) back up the installation php file for security reasons. 
+
+`cd /var/www/html/glpi/install
+sudo mv install.php install.php.bak
+sudo systemctl restart apache2`
+
+After this trick, one warning message from the GLPI home screen should disappear.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/354dd319-4d49-4d70-b903-1df63158a175)
+
 ---
 
 ## Backup + cron job
