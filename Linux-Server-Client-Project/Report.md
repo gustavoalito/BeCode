@@ -38,6 +38,8 @@ Please note the option "Enable DHCP". Later in the process, this option will be 
 
 Hence, the NAT network adapter will be initialized with DHCP enabled to get started. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. In the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
 # Setting up the Ubuntu server
 
 The first step was to download the Ubuntu server's ISO file from the official Ubuntu page.
@@ -48,6 +50,8 @@ For the Ubuntu server initial install: https://www.youtube.com/watch?v=YtH9D2SqB
 For the partition, I chose to make it manually. From the free space available, I created a partition of 2GB and mounted it into "mnt/backup".
 
 => For the firewall and SSH parts, I'm basing myself on the following [link](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Server_hardenning.md)
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
 
 ---
 
@@ -66,6 +70,8 @@ Since the root user in the Ubuntu server is by default disabled, I decided to le
 The connection is successful.
 
 If I ever need to set the root's word, then I can follow this link: https://www.server-world.info/en/note?os=Ubuntu_22.04&p=initial_conf&f=2
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
 
 ---
 
@@ -118,6 +124,10 @@ That means:
 	-  sudo ufw allow 67/udp
 	- Check if the firewall rule was correctly added: `sudo ufw status verbose`.
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ## Setting up a static IP address for the Ubuntu server
 
 Create or edit the network configuration file under the `/etc/netplan` directory. Create a configuration file and edit it in an editor:
@@ -151,6 +161,10 @@ However, this is not enough, as the client machine relies on the DHCP server for
 
 Follow the steps in the server_hardening documentation, and the DHCP video also helps in allowing the DHCP connection. For further information (and it will be useful later when other services are added), I'll follow this tutorial: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ## DNS
 Followed this tutorial: https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04
 
@@ -178,9 +192,17 @@ To test your query time we can use the dig command which is installed by the dns
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/4e783c03-a414-4a1a-8bc3-7c5077dfd4ed)
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ### Configure the DNS zone
 
 For a primary master server configuration, the DNS gets the data for a zone from a file stored on its host. Also, the DNS has control of that zone. Now let’s say we have a domain called “example.org”. We are going to configure the DNS to be the primary master for that domain.
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
 
 ### Forward Zone File
 
@@ -222,6 +244,10 @@ Step 5. Restart DNS Service to apply changes.
 
 `sudo systemctl restart bind9`
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ### Reverse Zone File
 
 Now to map an IP to a name you have to configure the reverse zone file.
@@ -250,6 +276,10 @@ Make the changes below:
 
 Step 4. Restart DNS Service to apply changes.
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ### Configuration Files Verification
 
 Step 1. Execute the following commands to check if it will return any errors.
@@ -260,6 +290,10 @@ named-checkconf /etc/bind/named.conf.local
 named-checkconf /etc/bind/named.conf`
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/5878c3a7-bafa-4fd8-a2ed-daceb265c76b)
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
 
 ### Testing the DNS configuration in the client
 
@@ -285,6 +319,8 @@ Using these commands, check whether they resolve into an address on a client mac
 They are all going through the DNS server (10.0.2.5) and are being resolved - internally and externally.
 
 **Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!**
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
 
 ---
 
@@ -329,6 +365,10 @@ Create a new database for GLPI. In the MariaDB shell, run the following commands
 `FLUSH PRIVILEGES;
 `EXIT;
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ### Install PHP and necessary modules
 
 `sudo apt install php libapache2-mod-php php-mysql -y
@@ -348,6 +388,9 @@ Up to this point, we should have the firewall configured with the following rule
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/7ce9b0f4-05bd-49ab-9705-e044762cd1ef)
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
 
 ### Installing GLPI
 
@@ -404,6 +447,8 @@ After this trick, one warning message from the GLPI home screen should disappear
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/354dd319-4d49-4d70-b903-1df63158a175)
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
 ---
 
 ## Backup + cron job
@@ -449,6 +494,8 @@ Use the command `sudo crontab -e`
 The script will log its operations in the log file `/var/log/backup.log`, including errors. 
 
 *NOTE: If a backup is ever needed to be restored, use the command `tar xvpfz backup.tgz -C /` inside the backup folder.
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
 
 ---
 
@@ -500,6 +547,10 @@ Verify the Separate /home Partition
 
 Install LibreOffice, Gimp & Mullvad browser. For Mullvad, you can follow this link: https://www.youtube.com/watch?v=vrgFzihf2rY&t=605s => or simply search for it in the "Software Manager" and install it from there. It's way easier ;)
 
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
+
 ### Troubleshooting
 
 The file /etc/resolv.conf is dynamically changing after a system or network service restart. This can cause your browser to not be able to redirect requests. There are ways of working around this. 
@@ -512,6 +563,10 @@ The file /etc/resolv.conf is dynamically changing after a system or network serv
 And check the resolv.conf file status: `sudo resolvectl status`
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/42d1fcb0-42ad-413a-a04f-c9e5545357f0)
+
+[INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
+
+---
 
 As long as you have a connection to the outside world and can update packages, you are good to go :)
 
