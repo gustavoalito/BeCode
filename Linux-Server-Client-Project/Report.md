@@ -2,28 +2,27 @@
 
 ### Index
 ![Index](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
-General condiderations: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#general-considerations
-Setting up the Ubuntu server: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-the-ubuntu-server
-Server hardening: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#server-hardening
-Setting up DHCP: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-dhcp
-Setting up a static IP address for the Ubuntu server: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-a-static-ip-address-for-the-ubuntu-server
-DNS: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#dns
-Configure the DNS zone: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#configure-the-dns-zone
-Forward Zone File: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#forward-zone-file
-Reverse Zone File: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#reverse-zone-file
-Configuration Files Verification: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#configuration-files-verification
-Testing the DNS configuration in the client: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#testing-the-dns-configuration-in-the-client
-HTTP, mariadb (internal website running GLPI): https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#http-mariadb-internal-website-running-glpi
-Install MariaDB (MySQL) server: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#install-mariadb-mysql-server
-Install PHP and necessary modules: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#install-php-and-necessary-modules
-Firewall: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#firewall
-Installing GLPI: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#installing-glpi
-Backup + cron job: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#backup--cron-job
-Setting up the client machine (Linux Mint): https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-the-client-machine-linux-mint
-Troubleshooting: https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#troubleshooting
+![General condiderations](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#general-considerations)
+![Setting up the Ubuntu server](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-the-ubuntu-server)
+	![Server hardening](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#server-hardening)
+![Setting up DHCP](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-dhcp)
+	![Setting up a static IP address for the Ubuntu server](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-a-static-ip-address-for-the-ubuntu-server)
+![DNS](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#dns)
+	![Configure the DNS zone](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#configure-the-dns-zone)
+	![Forward Zone File](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#forward-zone-file)
+	![Reverse Zone File](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#reverse-zone-file)
+	![Configuration Files Verification](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#configuration-files-verification)
+	![Testing the DNS configuration in the client](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#testing-the-dns-configuration-in-the-client)
+![HTTP, mariadb (internal website running GLPI)](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#http-mariadb-internal-website-running-glpi)
+	![Install MariaDB (MySQL) server](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#install-mariadb-mysql-server)
+	![Install PHP and necessary modules](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#install-php-and-necessary-modules)
+		![Firewall](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#firewall)
+	![Installing GLPI](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#installing-glpi)
+![Backup + cron job](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#backup--cron-job)
+![Setting up the client machine (Linux Mint)](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-the-client-machine-linux-mint)
+	![Troubleshooting](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#troubleshooting)
 
-
-
+---
 
 ### General considerations
 
