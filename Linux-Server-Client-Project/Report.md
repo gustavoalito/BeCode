@@ -4,9 +4,9 @@
 
 NAT network
 
-To get started, the NAT network adapter will be initialized with DHCP enabled. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. Down in the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
+The NAT network adapter will be initialized with DHCP enabled to get started. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. In the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
 
-# 1 -
+# Setting up the Ubuntu server
 
 The first step was to download the Ubuntu server's ISO file from the official Ubuntu page.
 Then, when initially installing it via VirtualBox, I used the following pages to help with the steps:
@@ -19,7 +19,7 @@ For the partition, I chose to make it manually. From the free space available, I
 
 ---
 
-# 2 -
+# Server hardening
 
 Following the link for hardening the server, I installed any packs that were necessary to run the commands I'm used to: 
 - plocate (for the "locate" command), 
@@ -37,7 +37,7 @@ If I ever need to set the root's word, then I can follow this link: https://www.
 
 ---
 
-# 3 -
+# Setting up DHCP
 
 Followed the video: https://www.youtube.com/watch?v=1csFmQeXHlg&t=462s
 
