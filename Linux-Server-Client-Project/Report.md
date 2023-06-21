@@ -476,10 +476,12 @@ Located at: **/usr/local/bin**
 
 Backup script:
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/2403e9a2-4e28-4438-a25a-eb1631def1d6)
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/cbffae19-55eb-437c-99c0-6141bed76154)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/ec3d2b41-aee7-4dab-a4fb-15c1cc59c279)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/54a1609e-491a-49e6-9b64-3683d6580c9c)
 
 ![ff2e-148d-4bcc-aaaf-83752c0712f7](https://github.com/gustavoalito/BeCode/assets/133368766/45fba618-e245-4980-a8f2-e51918ba9685)
+
+Apologies for all the SLEEP commands. I like to see the script executed step by step xD
 
 => Make sure the script has the correct permissions. In this case, it is owned by root. No problem with that. Just add execution permissions to it: `sudo chmod +x backup_conf_files.sh`
 
