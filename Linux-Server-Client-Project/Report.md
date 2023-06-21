@@ -121,50 +121,62 @@ Follow the steps in the server_hardening documentation, and the DHCP video also 
 ## DNS
 Followed this tutorial: https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04
 
-- LAN subnet is 192.168.24.0/24
-- DNS server's (bindserver's) IP address is 192.168.24.1
-- Client's IP address is 192.168.24.101
-- Domain is mylocaldomain.local
+- LAN subnet is 10.0.2.0/24
+- DNS server's IP address is 10.0.2.5
+- Client's IP address is 10.0.2.101
+- Domain is example.org
 
 Install 3 packages: bind9, bind9utils and bind9-doc
 
 Configuration file to be edited: /etc/bind/named.conf.options
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/4435111a-81bb-45f2-8430-2434ecee0f6c)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2b92acb8-1fa4-4044-8869-bb9152a843fc)
 
-These forwarders will be used if the DNS server needs to resolve domain names outside the configured zone.
 
-Save the changes and exit the text editor.
-
-### Configure the DNS zone:
-
-Open the Bind9 configuration file for the zone using a text editor:
-`sudo nano /etc/bind/named.conf.default-zones`
-Locate the section that begins with zone "." {. Inside that section, find the line that starts with type hint;. Comment out that line by adding a // at the beginning.
-Add the following zone configuration below the commented line:
-
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/e36951ab-ec53-447f-be57-0e8396612f1e)
-
-This configuration specifies that the DNS server will be authoritative for the example.org domain and will use the specified zone file.
+These forwarders will be used if the DNS server needs to resolve domain names outside the configured zone. The address used is Google's DNS.
 
 Save the changes and exit the text editor.
 
-After you make the changes, check the syntax of the file with the `named-checkconf` command:
+Restart the DNS service: `sudo systemctl restart bind9`
 
-```bash
-named-checkconf /etc/bind/named.conf.options
-```
-Don't mind the comments on "zones". Anything else should be checked though.
+To test your query time we can use the dig command which is installed by the dnsutils package.
 
-=> If you want to see more verbose output on a successful test, add the `-p` switch to the command (`named-checkconf -p`).
+`dig google.com`
 
-### Create the zone file
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/4e783c03-a414-4a1a-8bc3-7c5077dfd4ed)
 
-Go to the `/etc/bind directory`. Copy the empty zone file (like a template) so we can work on it:
+### Configure the DNS zone
 
-`sudo cp db.empty db.example.org` Then, open the db.example.org file for editing.
+For a primary master server configuration, the DNS gets the data for a zone from a file stored on its host. Also, the DNS has control of that zone. Now let’s say we have a domain called “example.org”. We are going to configure the DNS to be the primary master for that domain.
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/8d0ef494-77b8-4afe-b7e3-d9b83c1beb33)
+### Forward Zone File
+
+Step 1. Open and edit the /etc/bind/named.conf file.
+
+`sudo nano /etc/bind/named.conf`
+
+Ensure that it contains the following lines and they are *NOT* commented out:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/68e3c81e-664c-4db9-aea5-47b7a5befab7)
+
+Step 2. Open and edit the /etc/bind/named.conf.local file to add a DNS zone.
+
+`sudo nano /etc/bind/named.conf.local`
+
+Add the following block to it:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/b7737f6c-c0f2-4ed2-8f94-d8bfd135946c)
+
+Step 3. Create a zone file from the template one.
+
+sudo cp /etc/bind/db.local /etc/bind/db.example.org
+Step 4. Now open the new example zone file.
+
+`sudo nano /etc/bind/db.example.com`
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/79753efa-bed3-4a96-8702-c82222a57cf4)
+
+Please note that you have to increase the Serial Number every time you make changes to the zone files.
 
 In the above configuration:
 
@@ -173,93 +185,71 @@ In the above configuration:
 - **NS** defines the nameserver record for the zone.
 - **A** records map hostnames to IP addresses. In this case, server.example.org is assigned the IP address 10.0.2.5, and client1 is assigned the IP address 10.0.2.101.
 
-Save the changes and exit the text editor.
+Step 5. Restart DNS Service to apply changes.
 
-Restart the bind9 server for the changes to take effect.
+`sudo systemctl restart bind9`
 
-`sudo service bind9 restart`
+### Reverse Zone File
 
+Now to map an IP to a name you have to configure the reverse zone file.
 
+Step 1. Edit the /etc/bind/named.conf.local file.
 
-*Edit the named.conf.local file*
+`sudo nano /etc/bind/named.conf.local`
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/6a9b0573-1de5-4d11-83ef-f84a049a8335)
+Make the changes below: 
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/676555b7-dc47-4b49-bcc5-fb0d318be8e8)
 
-create a directory to store the zone files we specified in the previous step.
+10.0.2 is the first three octets of the network.
 
-```bash
-mkdir /etc/bind/zones
-```
+Step 2. Create the  `/etc/bind/db.10` file from template one.
 
-*Create the forward zone file*
+`sudo cp /etc/bind/db.127 /etc/bind/db.10`
 
-Now, we'll create a corresponding zone file `/etc/bind/zones/db.fwd.mylocaldomain.local`. The forward zone file allows the Bind DNS server to resolve names (like `ns.mylocaldomain.local`) to IP addresses (like `192.168.24.1`).
+Step 3. Edit the /etc/bind/db.10 file.
 
-First, copy the default db.local zone file to `/etc/bind/zones/db.fwd.mylocaldomain.local`:
+`sudo nano /etc/bind/db.10`
 
-```bash
-cp /etc/bind/db.local /etc/bind/zones/db.fwd.mylocaldomain.local
-```
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/9f6f981a-57a3-4183-8413-ef5f08ea3977)
+Make the changes below:
 
-Now, creating the reverse zone file is quite similar.
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/119dd4d5-695c-4a96-afdf-83627f4909ca)
 
-First, copy the default db.local zone file to `/etc/bind/zones/db.rev.mylocaldomain.local`
+Step 4. Restart DNS Service to apply changes.
 
-```bash
-cp /etc/bind/db.127 /etc/bind/zones/db.rev.mylocaldomain.local
-```
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/ff613bbe-b86d-436b-9b3e-44fe93007622)
+### Configuration Files Verification
 
-- Restart bind9 (systemctl restart bind9)
+Step 1. Execute the following commands to check if it will return any errors.
 
-## Configure clients to use the configuration
+`named-checkzone example.org /etc/bind/db.example.com
+named-checkzone 10.0.2.0/24 /etc/bind/db.10
+named-checkconf /etc/bind/named.conf.local
+named-checkconf /etc/bind/named.conf`
 
-Once the Private Bind DNS server is configured, we can configure the clients to use it. Follow these steps for both `client1` and `client2`.
-
-First, check which interface is used for LAN connectivity with this command:
-
-```bash
-ip -brief addr show to 192.168.24.0/24
-
-```
-
-The interface we need will be the first value displayed. For example, `enp0s8` in the output below:
-
-```bash
-enp0s8             UP             192.168.24.1/24
-```
-
-Next, edit your `netplan` YAML file to include a DNS configuration that points to the private Bind DNS server. Typically, `netplan` configuration files are stored at `/etc/netplan`.
-
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/0f58a027-59b0-4f8d-86f5-3c2f038e98e1)
-
-Once you the configuration is complete, test it with this command:
-
-```bash
-netplan try
-```
-
-Press `ENTER` to accept the changes.
-
-Now, configure the `nameserver` for the file `etc/resolv.conf`
-
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/2b3656b5-f25d-4f43-979c-5e8b2769d79c)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/5878c3a7-bafa-4fd8-a2ed-daceb265c76b)
 
 ## Testing the configuration
 
+The client needs to be configured to look up the DNS and the domain server name. For that, we need to edit the /etc/resolv.conf file.
+
+**resolv.conf**
+
+The first step in testing BIND9 is to add the nameserver’s IP Address to a host's resolver. The Primary nameserver should be configured as well as another host to double-check things. Refer to DNS client configuration for details on adding nameserver addresses to your network clients. In the end, your nameserver line in /etc/resolv.conf should be pointing at 10.0.2.5 and you should have a search parameter for your domain. Something like this:
+
+`nameserver  10.0.2.5
+search example.org`
+
+Once this is done, restart the networking service:
+
+`sudo systemctl restart networking`
 Using these commands, check whether they resolve into an address on a client machine:
 
-- `nslookup ns.mylocaldomain.local`
-- `nslookup mylocaldomain.local`
+- `nslookup example.org`
+- `dig example.org`
 
+They are all going through the DNS server (10.0.2.5) and are being resolved.
 
-
-Mixed success. They are all going through the DNS server (192.168.24.1) but don't get resolved.
-
-# Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!
+**Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!**
 
 ---
 
@@ -426,4 +416,4 @@ Verify the Separate /home Partition
 ![Pasted image 20230615160311](https://github.com/gustavoalito/BeCode/assets/133368766/942a69d0-a446-41b0-90d4-32ef0c1a19fd)
 
 
-Install LibreOffice, Gimp & Mullvad browser. For Mullvad, you can follow this link: https://www.youtube.com/watch?v=vrgFzihf2rY&t=605s 
+Install LibreOffice, Gimp & Mullvad browser. For Mullvad, you can follow this link: https://www.youtube.com/watch?v=vrgFzihf2rY&t=605s => or simply search for it in the "Software Manager" and install it from there. It's way easier ;)
