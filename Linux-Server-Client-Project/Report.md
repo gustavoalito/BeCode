@@ -332,7 +332,6 @@ Installing GLPI on Ubunutu:
 The easiest way is to follow this video: 
 https://www.youtube.com/watch?v=X3jbo6rFntI&t=458s
 
-
 Download link:
 `cd /tmp/ wget https://github.com/glpi-project/glpi/releases/download/10.0.7/glpi-10.0.7.tgz`
 
