@@ -497,11 +497,15 @@ Created a cron job to run this backup script once a week.
 
 Use the command `sudo crontab -e`. If you don't have this package, install it `sudo apt install cron`
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/2f83791c-7a04-4bef-84dd-90ff26758a1b)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/7719c819-8f82-4e2f-bb4d-9a52f8f54a4e)
 
 The script will log its operations in the log file `/var/log/backup.log`, including errors. 
 
-*NOTE: If a backup is ever needed to be restored, use the command `tar xvpfz backup.tgz -C /` inside the backup folder.
+*NOTE: If a backup is ever needed to be restored, use the command `tar xvpfz backup.tgz -C /` inside the backup folder. Remember:
+- Mount;
+- Execute restore script;
+- Move out of the directory;
+- Unmount.
 
 [INDEX](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#index)
 
