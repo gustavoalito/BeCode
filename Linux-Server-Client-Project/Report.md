@@ -2,7 +2,7 @@
 
 ### General considerations
 
-NAT network
++ NAT network +
 
 The NAT network adapter will be initialized with DHCP enabled to get started. Why? Because the Ubuntu server needs to get its IP address from somewhere. Until we set up a static IP address for it, it will be kept enabled. In the process, I'll describe how to set the static IP address so we can disable the NAT network adapter's DHCP option.
 
