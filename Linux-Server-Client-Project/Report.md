@@ -240,7 +240,7 @@ named-checkconf /etc/bind/named.conf`
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/5878c3a7-bafa-4fd8-a2ed-daceb265c76b)
 
-## Testing the configuration
+### Testing the DNS configuration in the client
 
 The client needs to be configured to look up the DNS and the domain server name. For that, we need to edit the /etc/resolv.conf file.
 
