@@ -577,7 +577,9 @@ As long as you have a connection to the outside world and can update packages, y
 - This process takes a lot of time, frustration, perseverance, research, testing, and beer with pizza.
 - Don't be afraid to start everything over.
 - Be humble, always.
+- Don't over-rely on chatGPT. I spent hours working with it trying to figure out my DNS issues. It never helped me much on this specific topic.
 - You're always learning.
+- Ask for help when you're stuck.
 - Help others if you can.
 - Exercise, take a break, and sleep well.
 - Understand it's a learning experience, don't take it so badly. It's a challenge, and you will defeat it.
