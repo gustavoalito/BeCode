@@ -21,6 +21,7 @@
 - [Backup + cron job](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#backup--cron-job)
 - [Setting up the client machine (Linux Mint)](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#setting-up-the-client-machine-linux-mint)
 - [Troubleshooting](https://github.com/gustavoalito/BeCode/blob/main/Linux-Server-Client-Project/Report.md#troubleshooting)
+- [Lessons-learned](
 
 ---
 
@@ -569,4 +570,16 @@ And check the resolv.conf file status: `sudo resolvectl status`
 ---
 
 As long as you have a connection to the outside world and can update packages, you are good to go :)
+
+### Lessons learned
+
+- In Linux, EVERYTHING is a file (quoting Thomas).
+- This process takes a lot of time, frustration, perseverance, research, testing, and beer with pizza.
+- Don't be afraid to start everything over.
+- Be humble, always.
+- You're always learning.
+- Help others if you can.
+- Exercise, take a break, and sleep well.
+- Understand it's a learning experience, don't take it so badly. It's a challenge, and you will defeat it.
+- Don't give up, ever!
 
