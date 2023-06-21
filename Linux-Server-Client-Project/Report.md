@@ -106,7 +106,7 @@ Now you can disable the NAT network adapter's DHCP option. And of course, restar
 
 To do that, we'll need to configure `/etc/resolv.conf` and edit the nameserver to the DHCP's IP address:
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/5ce346d0-8918-4ba2-8a86-6ec602b44025)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/59335e06-d8df-46ad-ac11-6662fc55a8a9)
 
 Pinging the server and client works and the client machine has a correctly assigned IP address.
 
@@ -247,7 +247,9 @@ Using these commands, check whether they resolve into an address on a client mac
 - `nslookup example.org`
 - `dig example.org`
 
-They are all going through the DNS server (10.0.2.5) and are being resolved.
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/b1074982-c266-4afb-a3c7-58b5017fc292)
+
+They are all going through the DNS server (10.0.2.5) and are being resolved - internally and externally.
 
 **Don't forget to allow bind9 or port 53 (default DNS server's port) in the server's firewall!!**
 
