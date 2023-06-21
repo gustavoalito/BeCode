@@ -465,8 +465,7 @@ For the backup, I'll try to mount the partition I created for the backup, create
 
 The command `lsblk`  which lists information about all available block devices, including disks and partitions.
 
-![Pasted image 20230615122836](https://github.com/gustavoalito/BeCode/assets/133368766/3bbe3944-695d-40b6-96f5-21a59ff9b906)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/9555dbd0-2b96-4e30-87b0-e3120999e6cc)
 
 It is **sda2**.
 
