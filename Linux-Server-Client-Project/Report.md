@@ -483,8 +483,11 @@ The file /etc/resolv.conf is dynamically changing after a system or network serv
 
 1 - You can create a simple script to change the settings to the correct DHCP IP address and run it at every system startup.
 2 - Or you can try to force the settings in the network configuration
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/a81839ce-1e8c-4595-9d42-2a117aae7f10)
+
 And check the resolv.conf file status: `sudo resolvectl status`
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/42d1fcb0-42ad-413a-a04f-c9e5545357f0)
 
 As long as you have a connection to the outside world and can update packages, you are good to go :)
