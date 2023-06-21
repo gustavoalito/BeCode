@@ -308,7 +308,7 @@ Create a new database for GLPI. In the MariaDB shell, run the following commands
 `FLUSH PRIVILEGES;
 `EXIT;
 
-### Install PHP and necessary modules:
+### Install PHP and necessary modules
 
 `sudo apt install php libapache2-mod-php php-mysql -y
 
