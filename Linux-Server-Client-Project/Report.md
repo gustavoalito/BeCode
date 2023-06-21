@@ -257,14 +257,11 @@ They are all going through the DNS server (10.0.2.5) and are being resolved - in
 
 ## HTTP, mariadb (internal website running GLPI)
 
-Install apache2
+Install apache2 (HTTP) server:
 
-Apache (HTTP) server:
+`sudo apt install apache2`
 
-`sudo apt install apache2
-
-
-Install MariaDB (MySQL) server:
+## Install MariaDB (MySQL) server
 
 `sudo apt install mariadb-server`
 
@@ -272,6 +269,8 @@ Once MariaDB is installed, you can secure the installation by running the follow
 
 `sudo mysql_secure_installation`
 
+Follow the instructions in the terminal and select the options that make more sense in terms of security: no root login, remove test user and database.
+	
 Create a new account called **admin** with the same capabilities as the **root** account, but configured for password authentication. Open up the MariaDB prompt from your terminal:
 
 `sudo mariadb`
