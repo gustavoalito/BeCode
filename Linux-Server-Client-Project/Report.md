@@ -261,6 +261,14 @@ Install apache2 (HTTP) server:
 
 `sudo apt install apache2`
 
+Since we're on an install frenzy, let's install a few other packages that will be required for GLPI (further down the line).
+
+`sudo apt install -y php-curl php-xml php-zip php-gd php-intl php-intl php-pear php-imagick php-imap php-memcache php-pspell php-tidy php-xmlrpc php-xsl php-mbstring php-ldap php-cas php-apcu libapache2-mod-php php-mysql php-bz2`
+
+Reload apache2:
+
+`sudo systemctl reload apache2`
+
 ## Install MariaDB (MySQL) server
 
 `sudo apt install mariadb-server`
@@ -279,17 +287,16 @@ Create a new account called **admin** with the same capabilities as the **roo
 
 Test it via the command: `sudo mysql -u admin -p`
 
-![Pasted image 20230614142431](https://github.com/gustavoalito/BeCode/assets/133368766/3475b059-c893-4f08-b5e4-2d58ee057a9a)
-
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/d9d9ea45-528b-483e-8891-01eeb2533d38)
 
 Create a new database for GLPI. In the MariaDB shell, run the following commands:
 
 `CREATE DATABASE glpidb;
-`GRANT ALL PRIVILEGES ON glpidb.* TO 'glpiuser'@'localhost' IDENTIFIED BY 'password';
+`GRANT ALL PRIVILEGES ON glpidb.* TO 'glpi'@'localhost' IDENTIFIED BY 'password';
 `FLUSH PRIVILEGES;
 `EXIT;
 
-Install PHP and necessary modules:
+### Install PHP and necessary modules:
 
 `sudo apt install php libapache2-mod-php php-mysql -y
 
@@ -302,26 +309,58 @@ Restart Apache for the changes to take effect:
 sudo ufw allow 80 
 sudo ufw allow 443
 
+Port 80 enables HTTP. Port 443, HTTPS (encrypted).
+
+Up to this point, we should have the firewall configured with the following rules:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/7ce9b0f4-05bd-49ab-9705-e044762cd1ef)
+
+
 ### Installing GLPI
 
 Installing GLPI on Ubunutu:
 
-- Connecting to the GLPI interface on the client via the browser: `192.168.1.24/glpi
-
 The easiest way is to follow this video: 
 https://www.youtube.com/watch?v=X3jbo6rFntI&t=458s
 
-Or, follow this tutorial:
-https://unixcop.com/how-to-install-glpi-on-ubuntu-22-04/
 
 Download link:
-`cd /tmp/ wget https://github.com/glpi-project/glpi/releases/download/10.0.7/glpi-10.0.7.tgz
+`cd /tmp/ wget https://github.com/glpi-project/glpi/releases/download/10.0.7/glpi-10.0.7.tgz`
 
+Now unzip the archive:
 
-![Pasted image 20230615105519](https://github.com/gustavoalito/BeCode/assets/133368766/ca897fef-1c3c-47f9-8a07-a5e004485981)
+`tar -xvf glpi-10.0.2.tgz`
 
+Move it to the Apache root directory:
 
+`sudo mv glpi /var/www/html/`
+
+Assign appropriate permissions:
+
+`sudo chmod 755 -R /var/www/html/`
+
+And make Apache the owner of it:
+
+`sudo chown www-data:www-data -R /var/www/html/`
+
+Now we can continue the installation through the client's browser. Note the Ubuntu server's IP address (ip a command): 10.0.2.5
+
+Go to the client machine, open a browser, and open `10.0.2.5/glpi`
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/7d8579b7-7ade-4c7f-88ed-ba89fe8a787e)
+
+Follow the instructions on the screen.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2f2ff905-4b1f-4aa4-8b4c-e6c698d49492)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/251750b4-8d1e-47b7-9e6d-8d38011bca3c)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/78b9f632-8b84-4722-9272-b3e4a6a28310)
 Change the passwords of the accounts above.
+
+Test connection using the default glpi user and password from the screenshot above.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/f3687d9c-49fa-46e5-86f7-feb87418eabd)
 
 ---
 
