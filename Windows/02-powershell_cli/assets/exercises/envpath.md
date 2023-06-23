@@ -25,7 +25,9 @@ Then you could use environment variables, which are variables stored at the OS l
 Script:
  
 `$csvPath = "C:\path\to\output.csv"`
+
 `$computerInfo = Get-ComputerInfo`
+
 `$computerInfo | Export-Csv -Path $csvPath -NoTypeInformation`
 
 
