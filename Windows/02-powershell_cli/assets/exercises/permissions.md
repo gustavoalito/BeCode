@@ -31,11 +31,11 @@ To run as the Administrator user: `runas /user:Administrator" "powershell"`
 
 This will prompt the user to type in the Administrator's password. Once typed in, a new PowerShell window will open and you're logged in as Administrator. 
 
-`Set-Location c:\Users\Boss
+`Set-Location c:\Users\Boss`
 
-Get-ChildItem
+`Get-ChildItem`
 
-Get-Acl Gustavo.txt`
+`Get-Acl Gustavo.txt`
 
 
 > **WARNING**: This exercise **will only work on Windows** system since file system permissions are not managed the same way on Windows and Linux.
