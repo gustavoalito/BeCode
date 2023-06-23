@@ -14,4 +14,5 @@ Everybody needs a little help at one time or another. In this exercise, we will 
 Optionally:
 
 - Try to get help on common commands such as `ls`, `cp`, `mv`, ...
+
 Just use the command name + -? to display its help. Example `ls -?`
