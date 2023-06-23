@@ -23,11 +23,48 @@ Then you could use environment variables, which are variables stored at the OS l
 - Write a small script reporting your computer specs and convert it into a CSV file. You might have some trouble executing your script once saved. Why? How can you change it in a secure way?
 
 Script:
+  _____________________________________________________________
+| $csvPath = "C:\path\to\output.csv"                           |
+|                                                              |
+| $computerInfo = Get-ComputerInfo                             |
+| $computerInfo | Export-Csv -Path $csvPath -NoTypeInformation |
+_______________________________________________________________
 
-| $csvPath = "C:\path\to\output.csv" |
+The $csvPath variable stores the path where the CSV file will be saved. Make sure to modify it to the desired file path.
 
-$computerInfo = Get-ComputerInfo
-$computerInfo | Export-Csv -Path $csvPath -NoTypeInformation
+The Get-ComputerInfo cmdlet retrieves comprehensive computer information, including operating system details, hardware specifications, network configuration, and more.
 
+The output of Get-ComputerInfo is assigned to the $computerInfo variable.
 
-> **WARNING**: This exercise will **only work on windows** since it's specific to the way windows manages environment variables.
+The $computerInfo variable is then exported to a CSV file using the Export-Csv cmdlet. The -NoTypeInformation parameter ensures that the CSV file does not include the type information.
+
+I created a file on the Desktop named "computer-specs.ps1" and edited it via PowerShell ISE (right-click the file and select "Edit").
+
+To run the script (considering I'm in the script's directory): `.\computer-specs.ps1`
+
+Open the created CSV file.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/75ba9e76-5691-4a7a-ab9f-080660439207)
+
+**Security considerations**
+By default, PowerShell restricts the execution of scripts as a security measure. If you try to run the script after saving it, you might encounter an error related to the "execution policy."
+
+To change the execution policy in a secure way, follow these steps:
+
+Open an elevated PowerShell prompt by right-clicking on the PowerShell icon and selecting "Run as administrator."
+
+Run the following command to check the current execution policy:
+`Get-ExecutionPolicy`
+
+If the current policy is set to "Restricted" or "AllSigned," you'll need to change it. Choose the policy that suits your needs but is still secure. For example, you can set the execution policy to "RemoteSigned" with the following command:
+`Set-ExecutionPolicy RemoteSigned`
+
+You'll be prompted to confirm the change. Type "Y" and press Enter.
+
+Now you can run your script without encountering the execution policy restriction.
+
+Remember to revert the execution policy back to a more secure setting after you've completed your task. You can set it back to "Restricted" with the following command: `Set-ExecutionPolicy Restricted`. This ensures that only trusted scripts can be executed on your system.
+
+- Some reference: https://www.pdq.com/blog/writing-your-first-powershell-script/
+
+> **WARNING**: This exercise will **only work on Windows** since it's specific to the way Windows manages environment variables.
