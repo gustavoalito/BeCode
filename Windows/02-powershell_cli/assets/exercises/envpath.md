@@ -23,12 +23,11 @@ Then you could use environment variables, which are variables stored at the OS l
 - Write a small script reporting your computer specs and convert it into a CSV file. You might have some trouble executing your script once saved. Why? How can you change it in a secure way?
 
 Script:
-  _____________________________________________________________
-| $csvPath = "C:\path\to\output.csv"                           |
-|                                                              |
-| $computerInfo = Get-ComputerInfo                             |
-| $computerInfo | Export-Csv -Path $csvPath -NoTypeInformation |
-_______________________________________________________________
+ 
+`$csvPath = "C:\path\to\output.csv"`
+`$computerInfo = Get-ComputerInfo`
+`$computerInfo | Export-Csv -Path $csvPath -NoTypeInformation`
+
 
 The $csvPath variable stores the path where the CSV file will be saved. Make sure to modify it to the desired file path.
 
