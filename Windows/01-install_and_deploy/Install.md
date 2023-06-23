@@ -39,7 +39,7 @@ Take the following courses:
 | 1. Is complete | I have installed Windows 10                                     |    YES   |
 | 2. Is complete | I have added a user Alice who is the system administrator.                                           |  YES    |
 | 3. Is complete | I added a user Bob who should only have write, execute and read rights in the /Users/Bob folder                              					                 |   YES     |
-| | I have configured an antivirus and firewall.                                                                         |  Yes  |
+| 4. Is complete | I have configured an antivirus and firewall.                    |  Yes  |
 
 ## Ready to fix your friends' computers? 
 
