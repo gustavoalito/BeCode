@@ -28,6 +28,11 @@ Take the following courses:
 * [Install and deploy](https://openclassrooms.com/en/courses/1733521-installez-et-deployez-windows-10)
 * [Config your windows](https://openclassrooms.com/en/courses/5668856-exploitez-votre-pc-avec-windows-10)
 
+=> The links below will be very useful for the following:
+- https://learn.microsoft.com/en-us/sysinternals/
+-   https://live.sysinternals.com/
+-   https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+
 ## Evaluation criterias
 | Criteria       | Indicator                                                                             | Yes/No |
 |----------------|---------------------------------------------------------------------------------------|--------|
