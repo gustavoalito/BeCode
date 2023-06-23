@@ -29,3 +29,4 @@ You need to specify the type. `New-Item story -Type Directory`
 `echo "I am a junior at BeCode" >> me.txt`
 - Remove the folder story with its content
 `Remove-Item story` And answer "Y" or "A".
+Or `Remove-Item –path c:\users\username\story –recurse `
