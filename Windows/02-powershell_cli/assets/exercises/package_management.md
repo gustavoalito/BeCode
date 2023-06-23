@@ -45,7 +45,8 @@ From https://chocolatey.org/install, you need to run the following script: `Set-
     - Could you use `Chocolatey` on already installed software? How?
 Chocolatey works in a similar manner to how you would do things if you downloaded and installed things yourself. Its design and infrastructure are built that way on purpose. It takes the pain of manually doing it yourself away.
 Now, Chocolatey can take over existing installs and be able to handle uninstalls in most cases. Can is very dependent on the packaging and the underlying software installer that is used for the installation (installer packages are the context here).
-So when a package takes over the existing install, if the registry snapshot doesn't differ, it won't be able to automatically uninstall it (if you have autoUninstaller turned on). If there is no chocolateyUninstall.ps1 that would uninstall the software, choco won't be able to uninstall it. At some point, it will though, as choco continues to get better at things. And at some point in the near future it will contain a check to do nothing for an install if a registry key exists (and record that for later uninstall).
+So when a package takes over the existing install, if the registry snapshot doesn't differ, it won't be able to automatically uninstall it (if you have autoUninstaller turned on). If there is no chocolateyUninstall.ps1 that would uninstall the software, choco won't be able to uninstall it.
+
 Ref.: https://docs.chocolatey.org/en-us/why#can-i-use-chocolatey-with-existing-software
 
 - Manage Windows Features
@@ -63,6 +64,7 @@ Use this command: `Get-WindowsOptionalFeature -Online`
 
  It actually needs to be enabled, as you can see in the screenshot above.
 `Enable-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V-All -Online`
+
 After Enabling this, the computer will need a restart.
        
 **WARNING**: This exercise **will only work on Windows** since it's specific to the way Windows manages packages.
