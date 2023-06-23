@@ -28,7 +28,9 @@ Alternative way:
 - Print the content of the file using the "administrator" account
 
 To run as the Administrator user: `runas /user:Administrator" "powershell"`
-This will prompt the user to type in the Administrator's password. Once typed in, a new powershell window will open and you're logged in as Administrator. 
+
+This will prompt the user to type in the Administrator's password. Once typed in, a new PowerShell window will open and you're logged in as Administrator. 
+
 `Set-Location c:\Users\Boss
 Get-ChildItem
 Get-Acl Gustavo.txt`
