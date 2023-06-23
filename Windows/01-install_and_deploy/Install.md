@@ -1,8 +1,8 @@
-# Windows : Install and deploy
+# Windows: Install and deploy
 
 - Type of Challenge: `Learning` 
 - Duration: `Two days.`
-- Team challenge : `solo`
+- Team challenge: `solo`
 
 ## The Mission
 You work as a computer technician for the company VeryEasyIT. You are asked to install Windows for one of their clients. 
@@ -13,7 +13,7 @@ On this computer, there will be two users.
 2. Bob, who is a user with restricted access. 
 He can only read, write and execute files in his ``/Users/Bob`` folder.
 
-As it is a windows system, don't forget to **install/configure an antivirus and a firewall.**
+This is a Windows system, don't forget to **install/configure antivirus and a firewall.**
 
 ![](https://d1fmx1rbmqrxrr.cloudfront.net/cnet/i/edit/2016/02/windows-3-1-archive.png)
 
@@ -24,7 +24,7 @@ As it is a windows system, don't forget to **install/configure an antivirus and 
 
 ### Steps
 Take the following courses: 
-* [Get an evaluation copy of windows 10](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise)
+* [Get an evaluation copy of Windows 10](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise)
 * [Install and deploy](https://openclassrooms.com/en/courses/1733521-installez-et-deployez-windows-10)
 * [Config your windows](https://openclassrooms.com/en/courses/5668856-exploitez-votre-pc-avec-windows-10)
 
@@ -33,13 +33,13 @@ Take the following courses:
 -   https://live.sysinternals.com/
 -   https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 
-## Evaluation criterias
+## Evaluation criteria
 | Criteria       | Indicator                                                                             | Yes/No |
 |----------------|---------------------------------------------------------------------------------------|--------|
-| 1. Is complete | I have installed Windows 10                                     |        |
-|                | I have added a user Alice who is the system administrator. available.                                           |        |
-|                | I added a user Bob who should only have write, execute and read rights in the /Users/Bob folder                              					                 |        |
-| | I have configured an antivirus and firewall.
+| 1. Is complete | I have installed Windows 10                                     |    YES   |
+| 2. Is complete | I have added a user Alice who is the system administrator.                                           |  YES    |
+| 3. Is complete | I added a user Bob who should only have write, execute and read rights in the /Users/Bob folder                              					                 |   YES     |
+| | I have configured an antivirus and firewall.                                                                         |  Yes  |
 
 ## Ready to fix your friends' computers? 
 
