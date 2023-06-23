@@ -6,6 +6,8 @@ This document lists criteria that **evaluate** your success in developing the **
 |:------------------|:------------------------------------------------------------------|:-------------|
 | **Relevance**     | Learned enough of the Linux CLI to tackle the "_Trial of Might_". | low          |
 | _Completeness_    | Has completed each one of the given exercise in its integrity.    | medium       |
+| _Wizard_          | Bonus task ? I want more                                          | high       |
+
 
 The headers for the table above can be summarized as follow:
 

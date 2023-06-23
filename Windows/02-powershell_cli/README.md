@@ -21,6 +21,8 @@ Powershell is one of the **most common shells** in modern **Windows systems**, i
 5. [Package Management](./assets/exercises/package_management.md)
 6. [Environment Variables](./assets/exercises/envpath.md)
 7. [Trial of Might](./assets/exercises/trial_of_might.md)
+8. [Bonus](./assets/exercises/bonus.md)
+
 
 To validate this challenge you will need to make a pull request on your training's repository with a file (`<your_name>.txt`, _snake cased_) containing a list of the passwords required to advance in the "Trial of Might" exercice. One password per line (_if possible_).
 
