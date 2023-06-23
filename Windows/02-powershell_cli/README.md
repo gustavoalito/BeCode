@@ -8,11 +8,11 @@ Output: **file**
 
 ## The mission
 
-You already had the opportunity to learn and use the Bash shell, but there are many other shells one could use. They all have their specificities, strengths and weaknesses; although they all work in similar manner they all answer to specific needs. One could says that knowing a new shell is like having a new tool in your toolset, this challenge will have you add [Powershell](https://en.wikipedia.org/wiki/PowerShell) to it.
+You already had the opportunity to learn and use the Bash shell, but there are many other shells one could use. They all have their specificities, strengths, and weaknesses; although they all work in a similar manner they all answer to specific needs. One could say that knowing a new shell is like having a new tool in your toolset, this challenge will have you add [Powershell](https://en.wikipedia.org/wiki/PowerShell) to it.
 
-Powershell is one of the **most common shells** in modern **Windows systems**, it has a different approach to Bash in that it manipulates [data types](https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.1) instead of exclusively text I/O (_input/output_). Furthermore, since it's developped by Microsoft it's also deeply integrated into Windows enebling extensive Windows system configuration.
+Powershell is one of the **most common shells** in modern **Windows systems**, it has a different approach to Bash in that it manipulates [data types](https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.1) instead of exclusively text I/O (_input/output_). Furthermore, since it was developed by Microsoft it's also deeply integrated into Windows enabling extensive Windows system configuration.
 
-> **NOTE**: Powershell is actually not a Windows exclusive shell, it can easily be used in Linux as well. However some of its functionalities are Windows specific and some of the exercises below will only be doable on a Windows system.
+> **NOTE**: Powershell is actually not a Windows-exclusive shell, it can easily be used in Linux as well. However, some of its functionalities are Windows-specific and some of the exercises below will only be doable on a Windows system.
 
 1. [RTFM](./assets/exercises/rtfm.md)
 2. [Navigation](./assets/exercises/navigation.md)
@@ -24,7 +24,7 @@ Powershell is one of the **most common shells** in modern **Windows systems**, i
 8. [Bonus](./assets/exercises/bonus.md)
 
 
-To validate this challenge you will need to make a pull request on your training's repository with a file (`<your_name>.txt`, _snake cased_) containing a list of the passwords required to advance in the "Trial of Might" exercice. One password per line (_if possible_).
+To validate this challenge you will need to make a pull request on your training's repository with a file (`<your_name>.txt`, _snake cased_) containing a list of the passwords required to advance in the "Trial of Might" exercise. One password per line (_if possible_).
 
 ## Complementary Resources
 
@@ -39,6 +39,6 @@ To validate this challenge you will need to make a pull request on your training
 
 ## Final Words
 
-Congratulations! You should now feel confortable using Powershell and Bash! They both have their pros and cons but they are also both amazing at what they are meant to do. The important thing is always to **use the right tool for the right job**, so don't hesitate to learn new tools to complete your toolset.
+Congratulations! You should now feel comfortable using Powershell and Bash! They both have their pros and cons but they are also both amazing at what they are meant to do. The important thing is always to **use the right tool for the right job**, so don't hesitate to learn new tools to complete your toolset.
 
 ![Briefing's GIF](https://c.tenor.com/jqsJ7vJKI4EAAAAC/ive-got-the-power-jim-carrey.gif)
