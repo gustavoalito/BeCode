@@ -11,32 +11,38 @@ Now that you gathered some basic understanding of the Powershell CLI, here is an
 ---
 
 **Century1**
+
 The password for Century2 is the build version of the instance of PowerShell installed on this system.
 
 Password:
 Command(s): `$PSversionTable`
 
 **Century2**
+
 The password for Century3 is the name of the built-in cmdlet that performs the wget like function within PowerShell PLUS the name of the file on the desktop.
 
 Password:
 Command(s): `Get-Alias wget`, `Get-Alias -Definition Invoke-WebRequest`, `dir`
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/7fd3295d-2f31-4c8c-bb55-3f7e4ed4c681)
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/490eff57-0a90-460f-bf02-fcbc887ae80f)
 
 **Century3**
+
 The password for Century4 is the number of files on the desktop.
 
 Password:
 Command(s): Get-ChildItem | Measure-Object
 
 **Century4**
+
 The password for Century5 is the name of the file within a directory on the desktop that has spaces in its name.
 
 Password:
 Command(s): `Get-ChildItem -Recurse | Select-String ' '` => Found 2 files. Tried the 1st file's name and it worked.
 
 **Century5**
+
 The password for Century6 is the short name of the domain in which this system resides in PLUS the name of the file on the desktop.
 
 Password:
