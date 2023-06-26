@@ -46,4 +46,44 @@ The password for Century5 is the name of the file within a directory on the desk
 The password for Century6 is the short name of the domain in which this system resides in PLUS the name of the file on the desktop.
 
 - Password:
-- Command(s): `Get-AdDomain | Select-Object Name` or simply `Get-AdDomain` and find the property requested. In this case, it's "Name". 
+- Command(s): `Get-AdDomain | Select-Object Name` or simply `Get-AdDomain` and find the property requested. In this case, it's "Name".
+
+## Century6
+
+The password for Century7 is the number of folders on the desktop.
+
+- Password:
+- Command(s): Get-ChildItem | Measure-Object
+
+
+## Century7
+
+The password for Century8 is in a readme file somewhere within the contacts, desktop, documents, downloads, favorites, music, or videos folder in the user’s profile.
+
+- Password: 
+- Command(s): `Get-ChildItem -Path C:\users\century7\contacts, C:\users\century7\desktop, C:\users\century7\documents, C:\users\century7\downloads, C:\users\century7\favorites, C:\users\century7\music, C:\users\century7\video
+s -Include *readme* -Recurse -ErrorAction SilentlyContinue`
+- Found a file named *Readme.txt* in *C:\users\century7\downloads*. Showing its contents to reveal the password.
+- Ref.: https://devblogs.microsoft.com/scripting/use-windows-powershell-to-search-for-files/
+
+## Century8
+
+The password for Century9 is the number of unique entries within the file on the desktop.
+- Password: 
+- Command(s): `(Get-Content .\unique.txt | Sort-Object -Unique).Length`
+- Ref.: https://www.tutorialspoint.com/how-to-count-the-total-number-of-lines-in-the-file-in-powershell
+
+## Century9
+
+The password for Century10 is the 161st word within the file on the desktop.
+- Password: 
+- Command(s): `$century10 = (-split (Get-Content -Raw -Path C:\Users\Century9\Desktop\Word_File.txtWord_File.txt))[160]`, then call the variable `$century10`
+- Ref.: https://stackoverflow.com/questions/58423984/century10-underthewire-tech-walkthrough
+- This approach splits the file into words irrespective of line breaks. Note that the above loads the entire file into memory as a single string, using *-Raw*.
+
+## Century10
+
+- Password: 
+- Command(s):
+
+
