@@ -75,15 +75,15 @@ The password for Century10 is the 161st word within the file on the desktop.
 The password for Century11 is the 10th and 8th word of the Windows Update service description combined PLUS the name of the file on the desktop.
 
 - Command(s):
-  . `Get-Service -DisplayName *update*` and locate the Windows Update service. Note its "Name" (wuauserv).
+  - `Get-Service -DisplayName *update*` and locate the Windows Update service. Note its "Name" (wuauserv).
   
-  . `Get-Service -DisplayName "Windows Update" | Select-Object *` Will list properties of the service, however, "Description" is not part of the list.
+  - `Get-Service -DisplayName "Windows Update" | Select-Object *` Will list properties of the service, however, "Description" is not part of the list.
   
-  . For that, we need to run the command `Get-CimInstace` to display information about the available class.
+  - For that, we need to run the command `Get-CimInstace` to display information about the available class.
   
-  . `Get-CimInstance -Class Won32_Service -Filter "Name='wuauserv'" | Select-Object *`. This will display all the properties of the Windows Update class. From there, you can manually count the words from the description.
+  - `Get-CimInstance -Class Won32_Service -Filter "Name='wuauserv'" | Select-Object *`. This will display all the properties of the Windows Update class. From there, you can manually count the words from the description.
   
-  . Alternatively, if you want to display **only** the Description, then you need to amend the command and format it so it wraps the field: `Get-CimInstance -Class Win32_Service -Filter "Name='wuauserv'" | Select-Object -Property Description | ft -Wrap`.
+  - Alternatively, if you want to display **only** the Description, then you need to amend the command and format it so it wraps the field: `Get-CimInstance -Class Win32_Service -Filter "Name='wuauserv'" | Select-Object -Property Description | ft -Wrap`.
 
 ## Century11
 The password for Century12 is the name of the hidden file within the contacts, desktop, documents, downloads, favorites, music, or videos folder in the user’s profile.
