@@ -79,17 +79,8 @@ This link is reported by different tools that it is a malicious link:
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/58feeec0-c4fd-462f-b5b6-594cff3aa6d3)
 
 The sender's IP address is from Russia:
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/56f57b16-a732-4367-a695-ab3c3a0b90d0)
-
-
-
-
-
-
-
-
-
-
 
 
 ### Tools used
@@ -98,3 +89,5 @@ The sender's IP address is from Russia:
 - https://mxtoolbox.com
 - https://phishtank.com
 - CyberChef (https://gchq.github.io/CyberChef
+- https://www.whois.com
+- https://app.phishtool.com
