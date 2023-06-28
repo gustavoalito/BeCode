@@ -16,20 +16,14 @@
 
 ---
 
-## Eùail is in Dutch. You'll find the translation to English below:
+## This email is in Dutch. You'll find the translation to English below:
 
 `MEET US THROUGH WHATSAPP
-
 THIS WORKS BETTER THAN TINDER
-
 100% Free meeting and meeting via WhatsApp. Does that exist?
-
 Of course! Read more about it here >>
-
 Flirting for singles becomes child's play here. And do you already have a partner? Our WhatsApp contacts provide more variety.
-
-The solution, therefore, to get to know new people quickly and easily, from a distance.
-
+The solution, therefore, is to get to know new people quickly and easily, from a distance.
 Now also available in the Netherlands and Belgium, so give it a try!`
 
 ### Email timestamp
@@ -38,7 +32,7 @@ Now also available in the Netherlands and Belgium, so give it a try!`
 
 ### Who is the email from?
 
-WhatsApp
+An individual named Ariana, not a company. 
 
 ### What is the sender's email address?
 
@@ -46,21 +40,22 @@ WhatsApp
 
 ### What email address will receive a reply to this email? 
 
-The same: `Reply-To: Ariana<news@aichakandisha.com>`
+`Reply-To: Ariana<news@aichakandisha.com>`
 
 ### What brand was this email tailored to impersonate?
 
-WhatsApp
+No company brand in this email. Only WhatsApp is used as a tool.
 
 ### What is the originating IP? Defang the IP address.
 
 51[.]83[.]34[.]109
 France:
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/c230354a-def0-43ed-8f3d-68187a5a9e52)
 
 ### Domain of interest
 
-whatsapp.com
+None.
 
 ### Shortened URL(s)
 
@@ -73,7 +68,11 @@ hxxp[://]secure-netcloud[.]com/?a=71&amp;c=76&amp;s1=dadaa&amp;email=phishing@po
 
 ### Verdict
 
+This is phishing. The email addresses are different and make no sense; hence, shady. The links also lead to a page that no longer exists. 
 
+Moreover, the email is very impersonal and is all in HTML.
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/d63a26f7-e76c-4261-b43a-6d02cc33f5a6)
 
 ### Tools used
 
