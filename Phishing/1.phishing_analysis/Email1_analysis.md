@@ -34,7 +34,7 @@ Ref.: https://www.paypal.com/be/webapps/mpp/phishing
 
 ### What email address will receive a reply to this email? 
 
-Return-Path: service@paypal.be
+`Return-Path: service@paypal.be`
 
 ### What brand was this email tailored to impersonate?
 
