@@ -82,7 +82,26 @@ hxxps[://]t[.]paypal[.]com/ts?v=3D1&amp;utm_source=
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/341c2d06-15fa-4f34-a55d-91e4b6621d40)
 
+This looks like a legitimate email, not a phishing one. The sender's email address corresponds to the official Belgian Paypal domain. Moreover, the links of the action buttons point to the Paypal.com domain.
+
+The originating IP address belongs to Paypal.
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/12b944bc-d74c-4960-8e62-567826c5f508)
 
 
+The links in the source code point to Paypal, and the social media links do resolve to Paypal's account on those platforms. Some links are no longer available. 
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/06684d77-a0d6-4190-a146-421f873780bf)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2addd6c4-91be-43ca-8f05-0a977a47001c)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/e598c187-a36b-4f32-b63b-ceb337aa6cfa)
 
+A couple of link verification, and no phishing reported on those links:
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/d3cf883f-40d4-4a24-83c4-e10a62124f03)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/76ac3028-0c62-4e7a-9134-4ae2aa9ab152)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/c2496d39-0e1d-4f6d-879f-e29145e0df02)
+
+### Tools used
+
+- https://www.virustotal.com
+- https://mxtoolbox.com
+- https://phishtank.com
+- CyberChef (https://gchq.github.io/CyberChef
