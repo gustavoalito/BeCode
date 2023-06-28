@@ -23,7 +23,7 @@ Mon, 12 Dec 2022 03:56:38 -0500 or Mon, 12 Dec 2022 09:56:36 +0100
 
 ### Who is the email from?
 
-Supposedly from Trustwallet.co.
+Supposedly from Trustwallet.com.
 
 ### What is the sender's email address?
 
@@ -65,6 +65,8 @@ This is phishing - a lousy one.
 The rendered email takes Trust Wallet's logo. There is no typo. The sense of urgency demands the user verify their account, otherwise, it will be suspended. 
 
 There are no malicious attachments or links. The only action the user can take (except answering the email). The link is to a legitimate climatization business: `https://climovil.com`. 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/c6fe597f-82e4-47eb-96ee-37766c361c18)
+
 
 This email brings no harm if the link provided is clicked. It just redirects the users to a site they were not expecting to visit. The only risk can be to reply to the email and provide credentials if requested. Therefore, THERE IS a risk.
 
