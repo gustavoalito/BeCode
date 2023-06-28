@@ -1,4 +1,4 @@
-# Phishing Analysis Report
+# Email 1 - Phishing Analysis Report
 
 
 **Generally speaking, I aim at answering the following questions:**
@@ -15,8 +15,6 @@
 - Tools used
 
 ---
-
-## Email 1
 
 ### Email timestamp
 20/03/2023 16:57
