@@ -1,60 +1,88 @@
-# Phishing Analysis
-
-- Type of Challenge: Learning
-- Duration: Two days
-- Team challenge : solo
+# Phishing Analysis Report
 
 
-## Your Mission
-As a SOC analyst, you have to analyze the 5 emails that your colleagues send you. You must determine which email appears to be phishing and write a report. Your report should include all your thoughts and print screens of all the tools you used 
-
-### Phishing Fundamentals
-
-First of all please do these two rooms of tryhackme :
-- https://tryhackme.com/room/phishingemails1tryoe
-- https://tryhackme.com/room/phishingemails2rytmuv
-
-
-### Phishing Case
-Your colleagues have provided you with emails in .eml format, ".eml" files are individual email files stored in Multipurpose Internet Mail Extensions (MIME) format. To scan .eml emails, you can use tools such as email clients (Outlook, Thunderbird, etc.), email viewing applications, or specialized tools such as email scanners.
-
-Here are some general steps you can take to scan an .eml file:
-
-- Open the .eml file in an email client or email viewing application. You can also open the .eml file with a text editor to see the source code of the email.
-- Check the email headers to identify the sender, recipient, date and subject information. You may also find additional information, such as the mail servers involved in the transmission of the message.
-- Check the content of the email for signs of phishing, such as suspicious links or requests for sensitive data.
-- Check attachments for malicious files, such as macros or scripts.
-- Use email analysis tools to extract additional information from the email, such as IP addresses of email servers or additional headers.
-
-**In your report, you must at least answer all the questions in the list below :**
+**Generally speaking, I aim at answering the following questions:**
 
 - What is the email's timestamp? 
 - Who is the email from?
-- What is his email address?
+- What is the sender's email address?
 - What email address will receive a reply to this email? 
 - What brand was this email tailored to impersonate?
 - What is the originating IP? Defang the IP address. 
 - What do you think will be a domain of interest? Defang the domain.
 - What is the shortened URL? Defang the URL.
-- Do you think this is a phishing email?
+- Verdict
+- Tools used
 
-### Tools 
-#### [VirusTotal](https://www.virustotal.com/gui/home/upload)
-VirusTotal was founded in 2004 as a free service that analyzes files and URLs for viruses, worms, trojans and other kinds of malicious content. Our goal is to make the internet a safer place through collaboration between members of the antivirus industry, researchers and end users of all kinds. Fortune 500 companies, governments and leading security companies are all part of the VirusTotal community, which has grown to over 500,000 registered users.
+---
 
-#### [PhishTools](https://www.phishtool.com/)  
-Be you a security researcher investigating a new phish-kit, a SOC analyst responding to user reported phishing, a threat intelligence analyst collecting phishing IoCs or an investigator dealing with email-born fraud.
+## Email 1
 
-PhishTool combines threat intelligence, OSINT, email metadata and battle tested auto-analysis pathways into one powerful phishing response platform. Making you and your organisation a formidable adversary - immune to phishing campaigns that those with lesser email security capabilities fall victim to.
+### Email timestamp
+20/03/2023 16:57
 
-#### [MX Lookup](https://mxtoolbox.com/)
-This test will list MX records for a domain in priority order. The MX lookup is done directly against the domain's authoritative name server, so changes to MX Records should show up instantly. You can click Diagnostics , which will connect to the mail server, verify reverse DNS records, perform a simple Open Relay check and measure response time performance. You may also check each MX record (IP Address) against 105 DNS based blacklists 
+### Who is the email from?
 
-#### [PhishTank](https://phishtank.com/?)
-PhishTank is a collaborative clearing house for data and information about phishing on the Internet. Also, PhishTank provides an open API for developers and researchers to integrate anti-phishing data into their applications at no charge.
+Paypal Belgium
 
-#### [Spamhaus](https://www.spamhaus.org/)
-Spamhaus is the world leader in supplying realtime highly accurate threat intelligence to the Internet's major networks.
+### What is the sender's email address?
 
-#### [Phishing incident response](https://www.incidentresponse.org/playbooks/phishing)  
-The phishing incident response playbook contains all 7 steps defined by the NIST incident response process: Prepare, Detect, Analyze, Contain, Eradicate, Recover, Post-Incident Handling.
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/1ea7e4d1-8d60-4811-839b-d8060cb398d7)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/8911d78a-ecc9-4f46-84a6-1073c71e70bd)
+
+According to Paypal Belgian's page on phishing, a valid Belgian PayPal address contains the domain name PayPal.be.
+Ref.: https://www.paypal.com/be/webapps/mpp/phishing
+
+### What email address will receive a reply to this email? 
+
+Return-Path: service@paypal.be
+
+### What brand was this email tailored to impersonate?
+
+Paypal
+
+### What is the originating IP? Defang the IP address.
+
+66[.]211[.]170[.]87
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/14fa9b51-12f2-4422-9a3b-7810698a9ab1)
+
+### Domain of interest
+
+paypal[.]com
+
+### Shortened URL(s)
+
+hxxps[://]www[.]paypalobjects[.]com/digitalassets/c/system-trig=
+hxxps[://]www[.]paypalobjects[.]com/digitalassets/c/system-trigger=
+hxxps[://]www[.]paypalobjects[.]com/digitalassets/c/system-triggered=
+hxxps[://]www[.]paypal[.]com/cgp/app-redirect?intent=3Dxo_email_txn_details&a=
+hxxps[://]www[.]paypal[.]com/cgp/app-redirect?intent=3Dx=
+hxxps[://]www[.]paypal[.]com/be/webapps/mpp/paypal-buyer-protection?v=3D1&amp=
+hxxps[://]www[.]paypalobjects[.]com/digitalassets/c/system-triggered-email/n/=
+hxxps[://]www[.]paypal[.]com/be/smarthelp/home?v=3D1&amp;utm_source=3Dunp&amp;utm_m=
+hxxps[://]www[.]paypal[.]com/be/webapp=
+hxxps[://]www[.]paypal[.]com/be/webapps/mpp/mobile=
+hxxps[://]twitter[.]com/PayPal?v=3D1%2C0[.]1=
+hxxps[://]www[.]paypalobjects[.]com/digitalassets/c/system-triggere=
+hxxps[://]www[.]instagram[.]com/paypal/?v=
+hxxps[://]www[.]paypalobjects[.]com/digitalassets/c/system=
+hxxps[://]www[.]facebook[.]com/PayPalUSA?v=
+hxxp[://]www[.]linkedin[.]com/company/1482?=
+hxxps[://]www[.]paypalobjects[.]com/digitalasset=
+hxxps[://]www[.]paypal[.]com/us/webapps/mpp/security/suspicious-act=
+hxxps[://]www[.]paypal[.]com/selfhelp/h=
+hxxps[://]www[.]paypal[.]com/be/smarthelp/article/why-am=
+hxxps[://]t[.]paypal[.]com/ts?v=3D1&amp;utm_source=
+
+### Verdict
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/eb8b1c4f-b629-4983-8a18-a6de3ed91e94)
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/341c2d06-15fa-4f34-a55d-91e4b6621d40)
+
+
+
+
+
