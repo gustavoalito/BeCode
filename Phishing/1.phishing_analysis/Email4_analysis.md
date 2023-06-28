@@ -25,7 +25,7 @@ This email in question is not hiding links or trying to steal users' confidentia
 
 ### Email timestamp
 
-Fri, 3 Mar 2023 12:44:01 +0100
+`Fri, 3 Mar 2023 12:44:01 +0100`
 
 ### Who is the email from?
 
@@ -33,11 +33,11 @@ Dr. Dan Miller, the United Nations Special Representative for Disaster Risk Redu
 
 ### What is the sender's email address?
 
-"Dr. Dan Miller" <babakingsouthmichael@gmail.com>
+`"Dr. Dan Miller" <babakingsouthmichael@gmail.com>`
 
 ### What email address will receive a reply to this email? 
 
-Reply-To: imorourafiatou0@gmail.com
+`Reply-To: imorourafiatou0@gmail.com`
 
 ### What brand was this email tailored to impersonate?
 
@@ -53,7 +53,7 @@ United Nations
 
 ### Shortened URL(s)
 
-N/A
+None found.
 
 ### Verdict
 
