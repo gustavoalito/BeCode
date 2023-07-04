@@ -8,7 +8,7 @@
 To implement a simple form (for learning purposes), I followed this tutorial:
 https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form
 
-And I came up with the following basic form (in HTML):
+And I came up with the following basic form (in [HTML](Phishing/2.making_phishing/form.html)):
 
 
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/571b03ad-679c-417a-bec9-906aa332b3c0)
