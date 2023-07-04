@@ -2,6 +2,8 @@
 ### HTML Cheat sheet
 [Learn HTML_ Elements and Structure Cheatsheet _ Codecademy.pdf](https://github.com/gustavoalito/BeCode/files/11946636/Learn.HTML_.Elements.and.Structure.Cheatsheet._.Codecademy.pdf)
 
+---
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/1789ce5b-eeed-423d-bdbe-5c805dff0da5)
 
 ## Forms
