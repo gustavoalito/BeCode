@@ -7,7 +7,8 @@ An internal stylesheet has certain benefits and use cases over inlines styles, b
 
 To create an internal stylesheet, a "style" element must be placed inside of the "head" element.
 
-![[Pasted image 20230630092503.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/289017d4-dfb4-43e0-b4fb-63da6d741c95)
+
 
 The CSS code in the example above changes the color of all paragraph text to red and also changes the size of the text to 20 pixels. Note how the syntax of the CSS code matches (for the most part) the syntax you used for inline styling. The main difference is that you can specify which elements to apply the styling.
 
@@ -20,7 +21,8 @@ You can use the [`<link>`](https://www.codecademy.com/resources/docs/html/eleme
 2. `rel` — this attribute describes the relationship between the HTML file and the CSS file. Because you are linking to a stylesheet, the value should be set to `stylesheet`.
 
 When linking an HTML file and a CSS file together, the `<link>` element will look like the following:
-![[Pasted image 20230630101108.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/513b8907-eb15-40be-9c77-aff80ba79c7c)
+
 
 Note that the the path to the stylesheet is a URL.
 
@@ -28,14 +30,16 @@ Specifying the path to the stylesheet using a URL is one way of linking a styles
 
 If the CSS file is stored in the same directory as your HTML file, then you can specify a relative path instead of a URL, like so:
 
-![[Pasted image 20230630102006.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/665a571d-19a1-4e69-8a5c-05785e61172b)
+
 
 Using a relative path is very common way of linking a stylesheet.
 
 ## Universal
 
 The _universal selector_ selects all elements of _any_ type. The universal selector uses the `*` character in the same place where you specified the type selector in a ruleset, like so:
-![[Pasted image 20230630103705.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/4e394582-9e28-461b-9579-d0abe48633a2)
+
 In the code above, every text element on the page will have its **font** changed to `Verdana`.
 
 
@@ -44,11 +48,13 @@ In the code above, every text element on the page will have its **font** chang
 CSS is not limited to selecting elements by their type. As you know, HTML elements can also have [attributes](https://www.codecademy.com/courses/learn-html/lessons/intro-to-html/exercises/attr-html). When working with HTML and CSS a [_class_](https://www.codecademy.com/resources/docs/html/classes?page_req=catalog) attribute is one of the most common ways to select an element.
 
 For example, consider the following HTML:
-![[Pasted image 20230630150949.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/5f3d23d8-cb1b-4a72-96ad-9875fe1ced3b)
+
 
 The paragraph element in the example above has a `class` attribute within the opening tag of the`<p>` element. The `class` attribute is set to `'brand'`. To select this element using CSS, we can create a ruleset with a class selector of `.brand`.
 
-![[Pasted image 20230630151008.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/0d025795-dc76-492f-8d70-30d74c18f9e7)
+
 To select an HTML element by its class using CSS, a period (`.`) must be prepended to the class’s name. In the example above, the class is `brand`, so the CSS selector for it is `.brand`.
 
 ## Multiple Classes
@@ -56,11 +62,13 @@ To select an HTML element by its class using CSS, a period (`.`) must be prepend
 It’s possible to add more than one class name to an HTML element’s `class` attribute.
 
 For instance, perhaps there’s a heading element that needs to be green and bold. You could write two CSS rulesets like so:
-![[Pasted image 20230630151059.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/85b671d7-21e9-4517-b770-0724c2ed01d9)
+
 
 Then, you could include both of these classes on one HTML element like this:
 
-![[Pasted image 20230630151115.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/a5986d87-9541-49d9-b348-01d407d65083)
+
 
 We can add multiple classes to an HTML element’s `class` attribute by separating them with a space. This enables us to mix and match CSS classes to create many unique styles without writing a custom class for every style combination needed.
 
@@ -68,13 +76,15 @@ We can add multiple classes to an HTML element’s `class` attribute by separa
 
 Oftentimes it’s important to select a single element with CSS to give it its own unique style. If an HTML element needs to be styled uniquely, we can give it an ID using the `id` attribute.
 
-![[Pasted image 20230630151516.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/701b272a-cf23-4332-958b-c6ccbf899aca)
+
 
 n contrast to `class` which accepts multiple values, and can be used broadly throughout an HTML document, an element’s `id` can only have a single value, and only be used once per page.
 
 To select an element’s ID with CSS, we prepend the `id` name with a number sign (`#`). For instance, if we wanted to select the HTML element in the example above, it would look like this:
 
-![[Pasted image 20230630151535.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/158dfc70-e4d1-4ab8-b5fd-656c526e1da4)
+
 
 The `id` name is `large-title`, therefore the CSS selector for it is `#large-title`.
 
@@ -94,16 +104,19 @@ The _attribute selector_ can be used to target HTML elements that already cont
 
 Attributes can be selected similarly to types, classes, and IDs.
 
-![[Pasted image 20230630152206.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/1424789c-4a70-470a-9645-df96a31d5318)
+
 
 The most basic syntax is an attribute surrounded by square brackets. In the above example: `[href]` would target all elements with an `href` attribute and set the [`color`](https://www.codecademy.com/resources/docs/css/colors/color) to `magenta`.
 
 And it can get [more granular](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors#syntax) from there by adding type and/or attribute values. One way is by using `type[attribute*=value]`. In short, this code selects an element where the attribute contains any instance of the specified value. Let’s take a look at an example.
-![[Pasted image 20230630152224.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/92789f55-f884-46be-b2a7-ee3ab4a07099)
+
 
 The HTML code above renders two [`<img>`](https://www.codecademy.com/resources/docs/html/elements/img?page_req=catalog) elements, each containing a `src` attribute with a value equaling a link to an image file.
 
-![[Pasted image 20230630152242.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/98851953-a30c-4dbc-b20b-e106e877c709)
+
 
 Now take a look at the above CSS code. The _attribute selector_ is used to target each image individually.
 
@@ -124,7 +137,8 @@ These are all examples of pseudo-class [selectors](https://www.codecademy.com/r
 
 A pseudo-class can be attached to any selector. It is always written as a colon `:` followed by a name. For example `p:hover`.
 
-![[Pasted image 20230630153137.png]]
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/5ce6a00e-2561-4c5d-b685-d593d64586c3)
+
 In the above code, whenever the mouse hovers over a paragraph element, that paragraph will have a lime-colored background.
 
 ## Specificity
