@@ -16,4 +16,6 @@ And I came up with the following basic form (in [HTML](https://github.com/gustav
 
 
 
-Another reference for forms: https://www.w3schools.com/html/html_forms.asp
+-Some references:-
+- https://www.w3schools.com/html/html_forms.asp
+- https://www.codehim.com/collections/login-page-in-html-with-css-code/
