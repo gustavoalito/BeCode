@@ -113,11 +113,6 @@ This is basically how you could harvest someones credentials. Obviously, this is
 
 This challenge gives one enough basic knowledge to craft a more persuasive phishing cmapaign.
 
+### Some Reference
 
-
-
-
-
-
-
-
+- https://www.cybervie.com/blog/phishing-attack-using-kali-linux/
