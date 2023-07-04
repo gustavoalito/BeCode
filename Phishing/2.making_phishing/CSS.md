@@ -1,4 +1,4 @@
-[[Learn CSS_ Syntax and Selectors Cheatsheet _ Codecademy.pdf]](https://github.com/gustavoalito/BeCode/blob/main/Phishing/2.making_phishing/Learn%20CSS_%20Syntax%20and%20Selectors%20Cheatsheet%20_%20Codecademy.pdf)
+[Learn CSS_ Syntax and Selectors Cheatsheet _ Codecademy.pdf](https://github.com/gustavoalito/BeCode/blob/main/Phishing/2.making_phishing/Learn%20CSS_%20Syntax%20and%20Selectors%20Cheatsheet%20_%20Codecademy.pdf)
 
 
 ## Internal stylesheet (nested within the "head" tag)
