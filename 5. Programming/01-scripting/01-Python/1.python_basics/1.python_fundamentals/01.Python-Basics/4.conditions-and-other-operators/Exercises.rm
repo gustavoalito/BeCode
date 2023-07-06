@@ -1,0 +1,121 @@
+# age = 32
+# age += 10
+
+# divAge = age / 7
+# print(divAge)
+
+# textDiv = age, "divided by 7 equals", divAge
+# print(textDiv)
+
+# floor = age // 7
+# restDiv = age / 7 - floor
+# print(restDiv)
+
+# expDiv = restDiv ** 3
+# print(expDiv)
+
+# number = (int(input("Enter a number: ")))
+# print(type(number))
+
+# Product prices
+# price_milk = 0.45
+# price_cider = 3.85
+# price_flour = 0.9
+# price_butter = 0.77
+# price_nutella = 1.87
+
+# Product quantity
+# quantity_milk = 2
+# quantity_cider = 3
+# quantity_flour = 1
+# quantity_butter = 1
+# quantity_nutella = 1
+
+# Calculating the total cost for each product
+# total_cost_milk = price_milk * quantity_milk 
+# total_cost_cider = price_cider * quantity_cider 
+# total_cost_flour = price_flour * quantity_flour
+# total_cost_butter = price_butter * quantity_butter
+# total_cost_nutella = price_nutella * quantity_nutella
+
+# Total shopping cost (rounding the value to 2 decimals)
+# total_cost = round((total_cost_milk + total_cost_cider + total_cost_flour + total_cost_butter + total_cost_nutella),2)
+# print("Total cost in Euro: " + str(total_cost))
+
+# allowanceMoney = 20
+# availableMoney = allowanceMoney - total_cost
+
+# Checking the available money and updating the message. Note, the abs() function  stands for "absolute value." It returns the absolute (positive) value of a number, disregarding its sign.
+# if availableMoney > 0:
+#     message = "You have spent " + str(total_cost) + " You have " + str(availableMoney) + " left."
+#     allowanceMoney = availableMoney
+# elif availableMoney == 0:
+#     message = "You are broke!"
+#     allowanceMoney = availableMoney
+# else:
+#     ammountMissing = abs(availableMoney)
+#     message = "Sorry, you're missing " + str(ammountMissing) + "."
+
+# Print the message
+# print(message)
+
+# Script to ask input for 2 numbers and print the smallest one
+# number1 = input("Enter a number: ")
+# number2 = input("Now, enter another number: ")
+
+# Calculating the smallest number and printing it
+# if number1 > number2:
+#     print("The smallest number is: " + str(number2))
+# elif number1 < number2:
+#     print("The smallest number is: " + str(number1))
+# elif number1 == number2:
+#     print("Those are the same numbers!")
+
+# Script to ask for 2 strings and display the one with more characters in it. Using the len() founction.
+
+# string1 = input("Enter the 1st string: ")
+# string2 = input("Enter the 2nd string: ")
+
+# Comparing the lengths of the strings
+# if len(string1) > len(string2):
+#     print("The largest string is: " + string1 + " with " + str(len(string1)) + " characters.")
+# elif len(string2) > len(string1):
+#     print("The largest string is: " + string2 + " with " + str(len(string2)) + " characters.")
+# else:
+#     print("Both strings have the same length!")
+
+# Write a script that converts euro into us dollars
+# euro_to_dollar = 1.09
+# dollar_to_euro = 0.92
+
+# print("Choose a currency to be converted. Accepted currencies are Euro and US Dollar.")
+# currency = input("Enter a currency to be converted. Type 'E' for Euro or '$' for US Dollars: ")
+# amount = float(input("Enter the amount to be converted: "))
+
+# if currency == 'E':
+#     conversion = amount * euro_to_dollar
+#     print(str(amount) + " Euro in US Dollars is: " + str(conversion))
+# elif currency == '$':
+#     conversion = amount * dollar_to_euro
+#     print(str(amount) + " US Dollars in Euro is: " + str(conversion))
+# else:
+#     print("Invalid currency input.")
+
+# Check if the variable name is in the studentsTuring list. (Without making a loop)
+# studentsTuring = ["Redouane", "Justine", "Ruben", "Edouard"]
+# name = "Edouard"
+
+# if name in studentsTuring:
+#     print("You are at the Turing's.")
+# else:
+#     print("You are not part of the Turing's.")
+# name = "Julie"
+
+# Calculate the volume of a sphere using the formula (4π/3) x R³. The radius is 10.
+# import math
+
+# radius = 10
+
+# volume = ((4 * math.pi) / 3) ** 3
+
+# print ("The volume of the sphere is: ", volume)
