@@ -22,6 +22,10 @@ sudo apt-get install virtualenv
 
 ## Usage
 
+---
+**For a Windows specific guide, use: https://linuxhint.com/activate-virtualenv-windows/**
+---
+
 When it will be installed, you can create a new enviroment and then activate it so you can use it.
 
 * To create a new one, type in you terminal:
