@@ -42,6 +42,11 @@ python -m virtalenv env
 source env/bin/activate
 ```
 
+* To deactivate it (from anywhere):
+```bash
+deactivate
+```
+
 If you changed the name `env` you have to change it in this command too.
 
 If you successfully activated the environemennt you should see it between parenthesis in your terminal. See screenshot below.
