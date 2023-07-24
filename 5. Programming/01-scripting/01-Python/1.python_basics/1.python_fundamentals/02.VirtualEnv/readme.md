@@ -14,7 +14,7 @@ To install it, you can simply use pip in the terminal.
 pip install virtualenv
 ```
 
-You can also install it using you OS package manager. For example on Ubuntu/Debian you can use:
+You can also install it using your OS package manager. For example on Ubuntu/Debian you can use:
 
 ```bash
 sudo apt-get install virtualenv
