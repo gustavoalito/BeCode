@@ -2,7 +2,7 @@
 
 #### Duration: 5 days
 - 1 day to learn about Flask: https://openclassrooms.com/fr/courses/4425066-concevez-un-site-avec-flask
-- - https://www.digitalocean.com/community/tutorials/how-to-use-and-validate-web-forms-with-flask-wtf
+  - https://www.digitalocean.com/community/tutorials/how-to-use-and-validate-web-forms-with-flask-wtf
   - https://flask.palletsprojects.com/en/2.3.x/quickstart/
   - https://blog.ruanbekker.com/blog/2022/05/31/python-flask-forms-with-jinja-templating/
 - 4 days to complete the project.
