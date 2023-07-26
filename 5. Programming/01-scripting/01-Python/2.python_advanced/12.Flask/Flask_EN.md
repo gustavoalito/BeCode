@@ -37,7 +37,8 @@ First name & last name + email + country (list) + message + gender (M/F) (Radio 
 #### At the end of this project, you should be able to:
 - Explain the difference between a POST request and a GET request.
 - Protect yourself against XSS vulnerabilities.
-- -  Output Encoding:
+---
+Output Encoding:
 By default, Jinja2 automatically escapes content placed within {{ ... }} expressions to prevent XSS attacks. You have correctly used this feature in your template. For example, in result.html, where you are displaying form data in the summary table, the key and value variables are automatically escaped when rendered using {{ ... }}.
 
 Quoted Attributes:
@@ -49,6 +50,7 @@ The honeypot trap you implemented in form.html is a good technique to catch spam
 Form Input Validation:
 In poulette_form.py, you have already implemented some basic form validation using WTForms validators. For example, you have used DataRequired() and Email() validators for the fullname and email fields, respectively. These validators help ensure that the submitted data meets specific criteria.
 
+---
 - Protect yourself against SSTI attacks.
 - Use a micro framework.
 - Perform a deployment.
