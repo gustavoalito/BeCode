@@ -39,16 +39,16 @@ First name & last name + email + country (list) + message + gender (M/F) (Radio 
 - Protect yourself against XSS vulnerabilities.
 ---
 Output Encoding:
-By default, Jinja2 automatically escapes content placed within {{ ... }} expressions to prevent XSS attacks. You have correctly used this feature in your template. For example, in result.html, where you are displaying form data in the summary table, the key and value variables are automatically escaped when rendered using {{ ... }}.
+By default, Jinja2 automatically escapes content placed within {{ ... }} expressions to prevent XSS attacks. I have correctly used this feature in my template. For example, in result.html, where I'm displaying form data in the summary table, the key and value variables are automatically escaped when rendered using {{ ... }}.
 
 Quoted Attributes:
-In the provided code, you are already quoting attributes properly when using Jinja expressions in them. For example, in form.html, all attributes like value="{{ form.fullname() }}", value="{{ form.email() }}", and others are correctly quoted. So, you are following this guideline.
+In the provided code, I'm already quoting attributes properly when using Jinja expressions in them. For example, in form.html, all attributes like value="{{ form.fullname() }}", value="{{ form.email() }}", and others are correctly quoted.
 
 Honeypot Trap:
-The honeypot trap you implemented in form.html is a good technique to catch spam bots without affecting regular users. Since the trap is using Jinja expressions correctly, it doesn't introduce any XSS vulnerability.
+The honeypot trap implemented in form.html is a good technique to catch spam bots without affecting regular users. Since the trap is using Jinja expressions correctly, it doesn't introduce any XSS vulnerability.
 
 Form Input Validation:
-In poulette_form.py, you have already implemented some basic form validation using WTForms validators. For example, you have used DataRequired() and Email() validators for the fullname and email fields, respectively. These validators help ensure that the submitted data meets specific criteria.
+In poulette_form.py, I have already implemented some basic form validation using WTForms validators. For example, you have used DataRequired() and Email() validators for the fullname and email fields, respectively. These validators help ensure that the submitted data meets specific criteria.
 
 ---
 - Protect yourself against SSTI attacks.
