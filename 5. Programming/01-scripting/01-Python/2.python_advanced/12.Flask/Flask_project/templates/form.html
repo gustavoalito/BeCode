@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+  .ohnohoney{
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+  }
+</style>
+
+<form method="POST">
+<!-- Real fields -->
+{{ form.csrf_token }}
+{{ form.fullname.label }}: {{ form.fullname() }}<br>
+{{ form.email.label }}: {{ form.email() }}{% if form.email.errors %} <span style="color: red;">{{ form.email.errors[0] }}</span>{% endif %}<br>
+  {# Email validation: added a check for errors in the email field using {% if form.email.errors %}. If there are any errors in the email field (e.g., an invalid email format), we display the first error message using {{ form.email.errors[0] }} in red color to indicate the issue. #}
+{{ form.country.label }}: {{ form.country() }}<br>
+{{ form.message.label }}: {{ form.message() }}<br>
+{{ form.gender.label }}:<br>
+<div class="gender-options">
+{{ form.gender() }}
+</div>
+<p>Subject:</p>
+{{ form.repair() }} {{ form.repair.label }}
+{{ form.order() }} {{ form.order.label }}
+{{ form.others(checked=True) }} {{ form.others.label }}
+<br>
+{{ form.submit() }}
+<br>
+<!-- bot/spam trap fields -->
+<label class="ohnohoney" for="name"></label>
+<input class="ohnohoney" autocomplete="off" type="text" id="name" name="name" placeholder="Your name here">
+<label class="ohnohoney" for="email"></label>
+<input class="ohnohoney" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here">
+
+</form>
+
+<style>
+  /* Custom CSS to remove bullet points for the gender options */
+  .gender-options {
+      list-style: none;
+      padding-left: 0;
+  }
+
+  .gender-options li {
+      display: inline;
+      margin-right: 20px; /* Adjust the margin as needed */
+  }
+</style>
+
+{% endblock %}

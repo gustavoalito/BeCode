@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Thank you for contacting us!</h2>
+<p>Your form has been successfully sent. We'll get in touch as soon as possible. See below a summary of the information you sent.</p>
+
+<table id="data" class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>Key</th>
+	    <th>Value</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for key, value in result.items() %}
+      {% if key not in ['csrf_token', 'submit', 'name'] %}
+        <tr>
+          <td> {{ key }} </th>
+          <td> {{ value }} </td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+
+</table>
+
+<div></div>
+
+{% endblock %}
