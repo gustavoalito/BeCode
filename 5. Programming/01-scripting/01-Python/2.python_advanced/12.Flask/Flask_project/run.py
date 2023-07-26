@@ -17,14 +17,27 @@ def root():
     else:
         return render_template('form.html', form=form, title="Contact Form")
 
-@app.route('/result', methods=['GET'])
+@app.route('/result', methods=['POST', 'GET'])
 def result():
-    if request.args:
-        # Retrieve the form data from the query parameters in the URL
-        result = request.args
-        return render_template("result.html", result=result, title="Contact Form Summary")
-    else:
-        return redirect(url_for('root'))  # If there are no query parameters, redirect to the form page
+    if request.method == 'POST':
+        # Process the form data and redirect to the result route with the form data as query parameters
+        form = ContactForm(request.form)
+        if form.validate_on_submit():
+            result = request.form
+            json_result = dict(result)
+            print(json_result)
+            return redirect(url_for('result', **json_result))
+        else:
+            # If form validation fails, redirect back to the root route
+            return redirect(url_for('root'))
+
+    elif request.method == 'GET':
+        if request.args:
+            # Retrieve the form data from the query parameters in the URL
+            result = request.args
+            return render_template("result.html", result=result, title="Contact Form Summary")
+        else:
+            return redirect(url_for('root'))  # If there are no query parameters, redirect to the form page
 
 if __name__ == '__main__':
     app.run(debug=True)

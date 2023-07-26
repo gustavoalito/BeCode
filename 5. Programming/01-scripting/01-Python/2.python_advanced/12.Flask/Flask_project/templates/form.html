@@ -16,22 +16,22 @@
 
 <form method="POST">
 <!-- Real fields -->
-{{ form.csrf_token }}
-{{ form.fullname.label }}: {{ form.fullname() }}<br>
-{{ form.email.label }}: {{ form.email() }}{% if form.email.errors %} <span style="color: red;">{{ form.email.errors[0] }}</span>{% endif %}<br>
-  {# Email validation: added a check for errors in the email field using {% if form.email.errors %}. If there are any errors in the email field (e.g., an invalid email format), we display the first error message using {{ form.email.errors[0] }} in red color to indicate the issue. #}
-{{ form.country.label }}: {{ form.country() }}<br>
-{{ form.message.label }}: {{ form.message() }}<br>
-{{ form.gender.label }}:<br>
+  {{ form.csrf_token }}
+  {{ form.fullname.label }}: {{ form.fullname() }}<br>
+  {{ form.email.label }}: {{ form.email() }}{% if form.email.errors %} <span style="color: red;">{{ form.email.errors[0] }}</span>{% endif %}<br>
+    {# Email validation: added a check for errors in the email field using {% if form.email.errors %}. If there are any errors in the email field (e.g., an invalid email format), we display the first error message using {{ form.email.errors[0] }} in red color to indicate the issue. #}
+  {{ form.country.label }}: {{ form.country() }}<br>
+  {{ form.message.label }}: {{ form.message() }}<br>
+  {{ form.gender.label }}:<br>
 <div class="gender-options">
-{{ form.gender() }}
+  {{ form.gender() }}
 </div>
 <p>Subject:</p>
-{{ form.repair() }} {{ form.repair.label }}
-{{ form.order() }} {{ form.order.label }}
-{{ form.others(checked=True) }} {{ form.others.label }}
+  {{ form.repair() }} {{ form.repair.label }}
+  {{ form.order() }} {{ form.order.label }}
+  {{ form.others(checked=True) }} {{ form.others.label }}
 <br>
-{{ form.submit() }}
+  {{ form.submit() }}
 <br>
 <!-- bot/spam trap fields -->
 <label class="ohnohoney" for="name"></label>
