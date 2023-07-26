@@ -55,10 +55,12 @@ In poulette_form.py, I have already implemented some basic form validation using
 ---
 The code already incorporates good practices like using Flask-WTF for CSRF protection and form validation. The suggested improvement to use the escape filter in result.html further enhances the security by preventing XSS attacks and does not introduce any security issues itself. 
 
-'''<td>{{ key | escape }}</td>
-            <td>{{ value | escape }}</td>
-            <!-- escaping the values adds an extra layer of security, protecting against XSS and SSTI attacks -->'''
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/2909d9ed-ba53-4ddd-a9ef-7f569bc0bc43)
 
 ---
 - Use a micro framework.
+---
+Using a micro-framework like Flask is already a good start for building a secure web application due to its lightweight nature and minimalistic approach. 
+
+---
 - Perform a deployment.
