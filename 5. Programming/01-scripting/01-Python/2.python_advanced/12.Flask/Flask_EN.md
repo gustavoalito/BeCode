@@ -22,6 +22,7 @@ The company Hackers Poulette™ sells DIY kits and accessories for Rasperri Pi. 
 * The form will perform server-side sanitization and validation.
 * If sanitization and validation are successful, a "Thank you for contacting us." page will be displayed, summarizing all the encoded information.
 * Implementation of the honeypot anti-spam technique.
+  https://dev.to/felipperegazio/how-to-create-a-simple-honeypot-to-protect-your-web-forms-from-spammers--25n8
 
 #### Form fields
 First name & last name + email + country (list) + message + gender (M/F) (Radio box) + 3 possible subjects (Repair, Order, Others) (checkboxes). All fields are mandatory, except for the subject (in this case, the value should be "Others").
