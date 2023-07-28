@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Project: Form in Python with Flask
 
 #### Duration: 5 days
