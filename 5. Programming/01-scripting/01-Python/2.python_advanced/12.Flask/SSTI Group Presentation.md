@@ -1,83 +1,4 @@
-# bc_python_flask_form
-BeCode Python - Flask Form Module
-
-## Project
-
-### Length
-
-- 1 day to learn about flask
-- 4 days to develop the project
-
-### Skills
-
-- Backend: Python Programming (initiation to logical structures)
-- Validation and Sanitazation of a form
-- Implementing POST and GET requests
-- Implementing templates with Jinja
-
-### Situation
-
-The company "Hackers Poulette" is selling DIY kits and accessories for Raspberry Pi's, they want to implement a form for technical support.
-
-Your mission is to develop a python script, showing a contact form and handling its use (sanitazation, validation, submit and feedback)
-
-## Rules
-
-### Performance criteria
-
-- If there is an error in the user input, return the form with valid fields still filled.
-- Show the field errors near the field in question.
-- The form should sanitize and have server side validation.
-- If the sanitazation and validation are ok, a "Thank you for your message" page should show with a run-down of all the information the user input.
-- Implement antispam and honeypots
-- **Required fields**:
-    - Full name
-    - Email
-    - Country (list)
-    - Message
-    - Gender (radio box)
-    - Subject (Repair, Order, Other)
-- All fields are required except "Subject", which will default to "Other" value if not entered
-
-
-### Goals
-
-- Presentation: architechture client/server
-- Sanitazation: neutralize all malicious code (script tags)
-- Validation: required fields + valid email
-- Confirmation: feedback when message sent
-- NO JS OR CSS
-
-
-### End goals
-
-At the end of the project, the following skills should be acquired:
-
-- Explain the difference betwenn a POST and GET request
-- Avoid XSS attacks
-- Avoid SSTI attacks
-- Use a micro framework
-- Deploy an app
-
-
-## Running the project
-
-Navigate to the desired version (v1 or v2)
-
-v1 is a barebones simple form with minimal features
-
-v2 is integrated with WTForms
-
-```sh
-flask run
-```
-
-Navigate to the url the terminal gives you (localhost:5000), you can see an example message already displayed.
-
-Navigate to "Create" and create a message.
-
-
-## Presentation
+## SSTI Group Presentation
 
 ### Group
 
@@ -109,7 +30,7 @@ If the next step in the form returns an error or raises an exception, the app is
 
 Next we need to identify what back-end is running, for this we can decompose the polyglot statement and start injecting specific server language payloads.
 
-![](presentation_img/0_pJf0zn5ChHY9X8sF-1-png-1.png)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/ee7d751b-bd0b-462a-9af0-07bd44f6ebd2)
 
 After you've identified the backend running on the target, you can start documenting yourself on the possible sandbox-escaping mechanisms and enter the exploitation phase.
 
@@ -127,7 +48,7 @@ it will run `ls` on the servers filesystem.
 
 To explain what's happening;
 
-![](presentation_img/ssti2.png)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/32e75ed7-e0b9-450b-a05d-ac559585133c)
 
 1. Returns the class for the "hello" string, which givse us `<class 'str'>`
 2. Returns the base class (parent class that the 'str' class inherits from), it outputs `<class 'object'>`
