@@ -19,6 +19,13 @@
 1. [UPDATE DB](https://sqlbolt.com/lesson/altering_tables)
 1. [DROP DB](https://sqlbolt.com/lesson/dropping_tables)
 
+- SQL Data Types for MySQL, SQL Server, and MS Access:
+https://www.w3schools.com/sql/sql_datatypes.asp
+
+- SQL Keywords Reference:
+https://www.w3schools.com/sql/sql_ref_keywords.asp
+
+
 ## Quizz
 
 Have you finished the SQL training and/or do you feel enough confortable with your knowledges ?
