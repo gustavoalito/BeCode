@@ -28,7 +28,7 @@ https://www.w3schools.com/sql/sql_ref_keywords.asp
 
 ## Quizz
 
-Have you finished the SQL training and/or do you feel enough confortable with your knowledges ?
+Have you finished the SQL training and/or do you feel enough confortable with your knowledge?
 
 Check your SQL knowledges via this [quizz from the W3School](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL)
 
