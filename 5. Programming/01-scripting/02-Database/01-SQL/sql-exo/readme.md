@@ -7,51 +7,51 @@ Dans un second fichier .sql, tu stockeras les requêtes qui te permettront de r�
 
 - Affiche toutes les données.
   
-  `SELECT * FROM students`
-  `INNER JOIN school`
-  `ON students.school=school.idschool`
-  `ORDER BY nom`
+  1. `SELECT * FROM students`
+  1. `INNER JOIN school`
+  1. `ON students.school=school.idschool`
+  1. `ORDER BY nom`
   
 - Affiche uniquement les prénoms.
   
-  `SELECT prenom FROM students`
+  1. `SELECT prenom FROM students`
   
 - Affiche les prénoms, les dates de naissance et l’école de chacun.
   
-  `SELECT prenom, datenaissance, school FROM students`
+  1. `SELECT prenom, datenaissance, school FROM students`
   
 - Affiche uniquement les élèves qui sont de sexe féminin.
   
-  `SELECT * FROM students`
-  `WHERE genre="F"`
+  1. `SELECT * FROM students`
+  1. `WHERE genre="F"`
   
 - Affiche uniquement les élèves qui font partie de l’école d'Addy.
   
-  `SELECT prenom, nom, school, @schoolid := school FROM students WHERE nom="Addy";`
-  `SELECT prenom, nom, school FROM students`
-  `WHERE school = @schoolid;`
+  1. `SELECT prenom, nom, school, @schoolid := school FROM students WHERE nom="Addy";`
+  1. `SELECT prenom, nom, school FROM students`
+  1. `WHERE school = @schoolid;`
   
 - Affiche uniquement les prénoms des étudiants, par ordre inverse à l’alphabet
 (DESC). Ensuite, la même chose mais en limitant les résultats à 2.
 
-  `SELECT prenom FROM students`
-  `ORDER BY prenom DESC;`
-  `SELECT prenom FROM students`
-  `ORDER BY prenom DESC`
-  `LIMIT 2;`
+  1. `SELECT prenom FROM students`
+  1. `ORDER BY prenom DESC;`
+  1. `SELECT prenom FROM students`
+  1. `ORDER BY prenom DESC`
+  1. `LIMIT 2;`
   
 - Ajoute Ginette Dalor, née le 01/01/1930 et affecte-la à Bruxelles, toujours en
 SQL.
 
-  `INSERT INTO students (nom, prenom, datenaissance, genre, school)`
-  `VALUES ( "Dalor", "Ginette", "1930-01-01", "F", 1);`
+  1. `INSERT INTO students (nom, prenom, datenaissance, genre, school)`
+  1. `VALUES ( "Dalor", "Ginette", "1930-01-01", "F", 1);`
   
 - Modifie Ginette (toujours en SQL) et change son sexe et son prénom en “Omer”.
   
-  `UPDATE students`
-  `SET genre = "M", prenom = "Omer"`
-  `ORDER BY idStudent DESC -- Ordering by the latest id`
-  `LIMIT 1; -- Limiting to the 1st entry, which in this case, is the last id entry`
+  1. `UPDATE students`
+  1. `SET genre = "M", prenom = "Omer"`
+  1. `ORDER BY idStudent DESC -- Ordering by the latest id`
+  1. `LIMIT 1; -- Limiting to the 1st entry, which in this case, is the last id entry`
   
 - Supprimer la personne dont l’ID est 3.
   
