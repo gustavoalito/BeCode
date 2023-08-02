@@ -67,3 +67,19 @@ SQL.
 5. `UPDATE students SET school = "Gent" WHERE school = "2";`
   
 - Faire d’autres manipulations pour voir si t’es bien compris.
+
+1. `SELECT * FROM students;`
+2. `ALTER TABLE students`
+3. `DROP datenaissance;`
+
+1. `ALTER TABLE students`
+2. `RENAME TO collabs;`
+3. `SELECT * FROM collabs;`
+
+1. `ALTER TABLE collabs`
+2. `ADD col tinyint default 123;`
+
+1. `ALTER TABLE collabs`
+2. `RENAME COLUMN nom to lastName;`
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/21ca5f95-bf86-4f54-b230-b95fb5efc761)
