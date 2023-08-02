@@ -1,5 +1,7 @@
 # Exercices MySQL Basics
 
+Tool utilized in this exercise: **MySQL WORKBENCH**
+
 - Crée une base de données `becode`.
 - Importe le fichier `students.sql` qui se trouve dans ce dossier.
 
