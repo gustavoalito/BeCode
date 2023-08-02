@@ -84,4 +84,7 @@ SQL.
 1. `ALTER TABLE collabs`
 2. `RENAME COLUMN nom to lastName;`
 
+1. `DROP TABLE collabs;`
+2. `DROP SCHEMA	if exists becode;`
+
 ![image](https://github.com/gustavoalito/BeCode/assets/133368766/21ca5f95-bf86-4f54-b230-b95fb5efc761)
