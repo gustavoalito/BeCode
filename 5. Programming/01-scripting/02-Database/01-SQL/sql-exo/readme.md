@@ -7,7 +7,7 @@ Dans un second fichier .sql, tu stockeras les requêtes qui te permettront de r�
 
 - Affiche toutes les données.
   
-  1. `SELECT * FROM students`
+  1.`SELECT * FROM students`
   1. `INNER JOIN school`
   1. `ON students.school=school.idschool`
   1. `ORDER BY nom`
