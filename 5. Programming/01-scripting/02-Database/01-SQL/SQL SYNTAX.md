@@ -29,17 +29,29 @@ Copy all columns into a new table:
 
 SELECT *  
 INTO _newtable_ [IN _externaldb_]  
-FROM _oldtable  
-_WHERE _condition_;
+FROM _oldtable
+WHERE _condition;
 
 Copy only some columns into a new table:
 
 SELECT _column1_, _column2_, _column3_, ...  
 INTO _newtable_ [IN _externaldb_]  
 FROM _oldtable  
-_WHERE _condition;_
+WHERE _condition;
 
 The new table will be created with the column-names and types as defined in the old table. You can create new column names using the `AS` clause.
+
+### TRICK: Selecting the last entry to view/modify the record
+
+For this, you can use ORDER BY DESC LIMIT.
+
+Query to select last record and update it :
+
+`update DemoTable
+`set Name='Robert'
+`order by Id DESC limit 1;
+
+
 
 ---
 
@@ -339,11 +351,9 @@ SELECT MAX(_column_name_)
 FROM _table_name_  
 WHERE _condition_;
 
-## SQL COUNT()
+### SQL COUNT()
 
 The `COUNT()` function returns the number of rows that matches a specified criterion.
-
-### COUNT() Syntax
 
 SELECT COUNT(_column_name_)  
 FROM _table_name_  
@@ -394,6 +404,26 @@ GROUP BY _column_name(s)
 HAVING _condition  
 ORDER BY _column_name(s);
 
+
+# Using SQL Variables in Queries
+
+## Problem
+
+You want to save a value from a query so you can refer to it in a subsequent query.
+
+## Solution
+
+Use a SQL variable to store the value for later use.
+
+## Discussion
+
+As of MySQL 3.23.6, you can assign a value returned by a `SELECT` statement to a variable, then refer to the variable later in your **mysql** session. This provides a way to save a result returned from one query, then refer to it later in other queries. The syntax for assigning a value to a SQL variable within a `SELECT` query is `@`_`var_name`_ `:=` _`value`_, where _`var_name`_ is the variable name and _`value`_ is a value that you’re retrieving. The variable may be used in subsequent queries wherever an expression is allowed, such as in a `WHERE` clause or in an `INSERT` statement.
+
+A common situation in which SQL variables come in handy is when you need to issue successive queries on multiple tables that are related by a common key value. Suppose you have a `customers` table with a `cust_id` column that identifies each customer, and an `orders` table that also has a `cust_id` column to indicate which customer each order is associated with. If you have a customer name and you want to delete the customer record as well as all the customer’s orders, you need to determine the proper `cust_id` value for that customer, then delete records from both the `customers` and `orders` tables that match the ID. One way to do this is to first save the ID value in a variable, then refer to the variable in the `DELETE` statements:
+
+mysql> **`SELECT @id := cust_id FROM customers WHERE cust_id='`**_`customer name`_**`';`**
+mysql> **`DELETE FROM customers WHERE cust_id = @id;`**
+mysql> **`DELETE FROM orders WHERE cust_id = @id;`**
 # Order of Execution of a Query
 
 ## 1. `FROM` and `JOIN`s
@@ -609,7 +639,6 @@ The following SQL deletes the "Email" column from the "Customers" table:
 
 ALTER TABLE Customers  
 DROP COLUMN Email;
-
 ## Renaming the table (RENAME TO)
 
 If you need to rename the table itself, you can also do that using the `RENAME TO` clause of the statement.
@@ -634,3 +663,30 @@ Additionally:
 Like the `CREATE TABLE` statement, the database may throw an error if the specified table does not exist, and to suppress that error, you can use the `IF EXISTS` clause.
 
 In addition, if you have another table that is dependent on columns in table you are removing (for example, with a `FOREIGN KEY` dependency) then you will have to either update all dependent tables first to remove the dependent rows or to remove those tables entirely.
+# ALTER COLUMN DATATYPE
+
+The `ALTER COLUMN` command is used to change the data type of a column in a table.
+
+The following SQL changes the data type of the column named "BirthDate" in the "Employees" table to type year:
+
+#### Example
+
+`ALTER TABLE Employees  
+`ALTER COLUMN BirthDate year;
+
+#### Other syntaxes
+
+**SQL Server / MS Access:**
+
+ALTER TABLE _table_name_  
+ALTER COLUMN _column_name datatype_;
+
+**My SQL / Oracle (prior version 10G):**
+
+ALTER TABLE _table_name_  
+MODIFY COLUMN _column_name datatype_;
+
+**Oracle 10G and later:**
+
+ALTER TABLE _table_name_  
+MODIFY _column_name datatype_;
