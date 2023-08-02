@@ -41,7 +41,7 @@ WHERE _condition;
 
 The new table will be created with the column-names and types as defined in the old table. You can create new column names using the `AS` clause.
 
-### TRICK: Selecting the last entry to view/modify the record
+### TIP: Selecting the last entry to view/modify the record
 
 For this, you can use ORDER BY DESC LIMIT.
 
@@ -57,28 +57,28 @@ Query to select last record and update it :
 
 #### SQL SELECT INTO Examples
 
-The following SQL statement creates a backup copy of Customers:
+- The following SQL statement creates a backup copy of Customers:
 
 SELECT * INTO CustomersBackup2017  
 FROM Customers;
 
-The following SQL statement uses the `IN` clause to copy the table into a new table in another database:
+- The following SQL statement uses the `IN` clause to copy the table into a new table in another database:
 
 SELECT * INTO CustomersBackup2017 IN 'Backup.mdb'  
 FROM Customers;
 
-The following SQL statement copies only a few columns into a new table:
+- The following SQL statement copies only a few columns into a new table:
 
 SELECT CustomerName, ContactName INTO CustomersBackup2017  
 FROM Customers;
 
-The following SQL statement copies only the German customers into a new table:
+- The following SQL statement copies only the German customers into a new table:
 
 SELECT * INTO CustomersGermany  
 FROM Customers  
 WHERE Country = 'Germany';
 
-The following SQL statement copies data from more than one table into a new table:
+- The following SQL statement copies data from more than one table into a new table:
 
 SELECT Customers.CustomerName, Orders.OrderID  
 INTO CustomersOrderBackup2017  
@@ -462,7 +462,7 @@ Finally, the rows that fall outside the range specified by the `LIMIT` and `O
 
 When inserting data into a database, we need to use an `INSERT` statement, which declares which table to write into, the columns of data that we are filling, and one or more rows of data to insert. In general, each row of data you insert should contain values for every corresponding column in the table. You can insert multiple rows at a time by just listing them sequentially.
 
-nsert statement with values for all columns
+Insert statement with values for all columns
 
 `INSERT INTO mytable VALUES (value_or_expr, another_value_or_expr, …), (value_or_expr_2, another_value_or_expr_2, …), …;`
 
@@ -624,7 +624,14 @@ The following SQL adds an "Email" column to the "Customers" table:
 ALTER TABLE Customers  
 ADD Email varchar(255);
 
-## Removing columns (DROP)
+## RENAME COLUMN
+
+To rename a column in a table, use the following syntax:
+
+ALTER TABLE _table_name_  
+RENAME COLUMN _old_name_ to _new_name_;
+
+## REMOVING COLUMNS (DROP)
 
 Dropping columns is as easy as specifying the column to drop, however, some databases (including SQLite) don't support this feature. Instead you may have to create a new table and migrate the data over.
 
