@@ -205,6 +205,5 @@ class ContactForm(FlaskForm):
     repair = BooleanField('Repair')
     order = BooleanField('Order')
     others = BooleanField('Others')
-
     
     submit = SubmitField('Submit')

@@ -19,8 +19,9 @@
       {% for key, value in result.items() %}
         {% if key not in ['csrf_token', 'submit', 'name'] %}
           <tr>
-            <td>{{ key }}</td>
-            <td>{{ value }}</td>
+            <td>{{ key | escape }}</td>
+            <td>{{ value | escape }}</td>
+            <!-- escaping the values adds an extra layer of security, protecting against XSS and SSTI attacks -->
           </tr>
         {% endif %}
       {% endfor %}
