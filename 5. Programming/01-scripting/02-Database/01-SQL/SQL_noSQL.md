@@ -25,6 +25,23 @@ In the world of database management systems, two main contenders stand out: SQL 
 | Scalability             | Horizontal scaling                               |
 | Examples                | MongoDB, Cassandra, Redis, HBase, Neo4j          |
 
+## Important topic: SECURITY
+
+| Security Threats       | NoSQL Databases                                       | SQL Databases                                       |
+|------------------------|-------------------------------------------------------|-----------------------------------------------------|
+| Injection Attacks      | NoSQL injection attacks targeting query languages   | SQL injection attacks                               |
+| Weak Authentication    | Simpler authentication and authorization mechanisms  | Robust authentication and authorization mechanisms |
+| Schemaless Design      | Flexibility can lead to data integrity issues        | Rigid schema provides better data validation        |
+| Denial of Service      | Vulnerable to DoS attacks                            | Vulnerable to DoS attacks                           |
+| Insecure Configurations| Insecure default settings might expose the system   | Insecure default settings might expose the system   |
+| Lateral Movement       | Compromising web apps can lead to DB access         | Compromising web apps can lead to DB access         |
+| Limited Auditing       | Logging and auditing might be limited                | Better logging and auditing capabilities            |
+| Data Privacy Concerns  | Increased risk of mishandling sensitive data         | Similar data privacy concerns                       |
+| Scalability Challenges | Complex security setup in distributed environments   | More centralized security setup                     |
+
+Summary:
+NoSQL databases are susceptible to NoSQL injection attacks, have weaker authentication mechanisms, and face challenges due to their schemaless design. They are vulnerable to DoS attacks, might come with insecure defaults, and could have limited auditing capabilities. Additionally, handling data privacy and securing distributed environments can be challenging. SQL databases, on the other hand, are prone to SQL injection attacks but generally have stronger authentication and authorization mechanisms. They benefit from rigid schemas that improve data validation and have more robust auditing features. Both database types share concerns regarding data privacy and are vulnerable to DoS attacks.
+
 ## When to Choose NoSQL:
 
 | Use Case                                     |
