@@ -7,7 +7,7 @@ In the world of database management systems, two main contenders stand out: SQL 
 
 ## Relational Database (SQL):
 
-![image](https://github.com/gustavoalito/BeCode/assets/133368766/f51d1fd4-fb03-479d-805f-64b7d40a60ff = 250x250)
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/f51d1fd4-fb03-479d-805f-64b7d40a60ff =250x250)
 
 
 | Aspect                  | Description                                       |
