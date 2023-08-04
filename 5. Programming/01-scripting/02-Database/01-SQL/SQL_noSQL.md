@@ -119,5 +119,5 @@ Please note that the choice between SQL and NoSQL databases depends on your spec
 
 ## References
 - https://www.oracle.com/be/database/nosql/what-is-nosql/
-- https://www.boltic.io/blog/relational-databases-vs-nosql
+- https://www.boltic.io/blog/relational-databases-vs-nosql (content as well as images)
 - https://www.youtube.com/watch?v=BW3cdr5MjEE
