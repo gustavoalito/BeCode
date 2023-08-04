@@ -7,6 +7,9 @@ In the world of database management systems, two main contenders stand out: SQL 
 
 ## Relational Database (SQL):
 
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/f51d1fd4-fb03-479d-805f-64b7d40a60ff)
+
+
 | Aspect                  | Description                                       |
 |-------------------------|---------------------------------------------------|
 | Data Storage            | Tables with predefined schema                    |
@@ -16,6 +19,9 @@ In the world of database management systems, two main contenders stand out: SQL 
 | Examples                | MySQL, PostgreSQL, Oracle Database, SQL Server   |
 
 ## NoSQL Database:
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/61ac3f12-0983-478b-969a-5b7be7ccb00b)
+
 
 | Aspect                  | Description                                       |
 |-------------------------|---------------------------------------------------|
@@ -91,6 +97,9 @@ NoSQL databases are susceptible to NoSQL injection attacks, have weaker authenti
 - Neo4j: Graph database, suited for data represented as a graph.
 
 ## In summary
+
+![image](https://github.com/gustavoalito/BeCode/assets/133368766/0e73b453-fd60-45fc-807c-97db5c0b055e)
+
 
 | Aspect                   | SQL Database                                     | NoSQL Database                                  |
 |--------------------------|--------------------------------------------------|-------------------------------------------------|
