@@ -1,16 +1,16 @@
 # MongoDB
 
-+ Copntent copied from https://www.w3schools.com +
++ Content copied from https://www.w3schools.com +
 
 Mongo is a document DB.
 
 ## Show all databases
 To see all available databases, in your terminal type `show dbs`.
 
-Notice that any empty database will not be listed; they are essentially non-existant until they have content.
+Notice that any empty database will not be listed; they are essentially non-existent until they have content.
 
 ## Change or Create a Database
-You can change or create a new database by typing `use` then the name of the database.
+You can change or create a new database by typing `use` and then the name of the database.
 
 ## Creating Collections using mongosh
 There are 2 ways to create a collection.
@@ -25,7 +25,7 @@ Example
 You can also create a collection during the insert process.
 
 Example
-We are here assuming object is a valid JavaScript object containing post data:
+We are here assuming the object is a valid JavaScript object containing post data:
 `db.posts.insertOne(object)`
 
 ## Insert Documents
@@ -110,7 +110,7 @@ Example
 `db.posts.find( {category: "News"} )`
 
 ## Projection
-Both find methods accept a second parameter called projection.
+Both "find" methods accept a second parameter called projection.
 
 This parameter is an object that describes which fields to include in the results.
 
