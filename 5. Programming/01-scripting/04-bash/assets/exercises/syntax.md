@@ -25,13 +25,17 @@ Write a shell script *receiving* a name as *argument*, then replying `Hello <nam
 
 ### III - path to
 
-Write a shell script receiving a *path* as argument, depending on if it's a file or a directory, display or list its content.
+Write a shell script receiving a *path* as an argument, depending on if it's a file or a directory, display or list its content.
 
-You can complexify the script by only displaying file containing text (ex: `.txt`, `.js`) and returning an error for anything else (ex: `.mp3`, `.pdf`).
+You can complexify the script by only displaying files containing text (ex: `.txt`, `.js`) and returning an error for anything else (ex: `.mp3`, `.pdf`).
 
 ### IV - information
 
 Write a shell script to see the current date, time, username, and directory.
+This one just uses 3 command lines:
+`date`
+`whoami`
+`pwd`
 
 ### V - list of groups
 
