@@ -2,13 +2,13 @@
 
 ## Introduction
 
-It's a good thing to know what a **script** is, it's even better to know how to write one yourself. Hopefully that's exactly what you're going to try here. Follow this [tutorial](https://www.learnshell.org/) (_or others_) on bash scripting then complete the exercises below to ensure fundamental understanding of the syntax. 
+It's a good thing to know what a **script** is, it's even better to know how to write one yourself. Hopefully, that's exactly what you're going to try here. Follow this [tutorial](https://www.learnshell.org/) (_or others_) on bash scripting then complete the exercises below to ensure a fundamental understanding of the syntax. 
 
 Here are some _tips_ to help you out:
 
 * You can append the extension `.sh` to your script for clarity.
 * A [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) is needed to indicate to the shell what language to use.
-* To make a file executable use [chmod](https://askubuntu.com/questions/229589/how-to-make-a-file-e-g-a-sh-script-executable-so-it-can-be-run-from-a-termi).
+* To make a file executable use [chmod](https://askubuntu.com/questions/229589/how-to-make-a-file-e-g-a-sh-script-executable-so-it-can-be-run-from-a-termi) (chmod +x filename.sh).
 * One way to execute your script is to type `./<path to file>`.
 
 > **NOTE**: You can also find more exercises on [Codewars](https://www.codewars.com/)!
