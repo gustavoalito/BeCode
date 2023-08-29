@@ -26,3 +26,4 @@ Follow the instructions below to guide you through the process.
 
 * [Web Scraping with Bash](https://medium.com/@LiliSousa/web-scraping-with-bash-690e4ee7f98d)
 * [Linux Shell for Web Scraping](https://www.joyofdata.de/blog/using-linux-shell-web-scraping/)
+* [Delete lines containing string from file](https://www.baeldung.com/linux/delete-lines-containing-string-from-file)
