@@ -38,11 +38,11 @@ The second phase, the most interesting one, will make the link with the period o
 
 **Investigation**: *This is monitoring, using SIEM (Security Information and Event Management) and EDR (Endpoint Detection and Response) tools to monitor suspicious activity and prioritize alerts based on their level (Low, Medium, High and Critical)*
 
-**Response**: *Once the investigation is complete, the SOC must coordinate and take action by isolating compromised hosts, terminating ongoing malicious processes and ensuring the incident does not recur*
+**Response**: *Once the investigation is complete, the SOC must coordinate and take action by isolating compromised hosts, terminating ongoing malicious processes and ensuring the incident does not reoccur.*
 
 As an introduction, I propose you to review the main lines of defensive security and the scope of a Junior security analyst, you will also find the NDE (Network defense essential) of the Eccouncil (if you wish *) which summarizes the fundamentals of computer security, the protocols, the concepts, the frameworks, the controls, the categories of tools and which gives you a first approach of the topic
 
-- [Defensive security](https://tryhackme.com/room/defensivesecurityhq)
+- [Defensive security](https://tryhackme.com/room/defensivesecurity)
 
 - [Junior analyst](https://tryhackme.com/room/jrsecanalystintrouxo)
 
