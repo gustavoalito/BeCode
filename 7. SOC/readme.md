@@ -5,8 +5,8 @@
 
 ## Prerequisites
 
-* Operating Systems ([01-Linux](../01-Linux/), [02-Windows](../02-Windows/))
-* Basic understanding of Networking ([00-Network](../00-Network/))
+* Operating Systems ([01-Linux]([../01-Linux/](https://github.com/gustavoalito/BeCode/tree/main/2.%20Linux)), [02-Windows]([../02-Windows/](https://github.com/gustavoalito/BeCode/tree/main/3.%20Windows)))
+* Basic understanding of Networking ([00-Network]([../00-Network/](https://github.com/gustavoalito/BeCode/tree/main/1.%20Network)))
 * TCP/IP model ([TCP/IP basic](https://openclassrooms.com/fr/courses/6944606-concevez-votre-reseau-tcp-ip), [TCP/IP advanced](https://openclassrooms.com/fr/courses/2340511-maitrisez-vos-applications-et-reseaux-tcp-ip))
 
 ## Learning objectives
