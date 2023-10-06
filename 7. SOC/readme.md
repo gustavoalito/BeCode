@@ -46,7 +46,7 @@ As an introduction, I propose you to review the main lines of defensive security
 
 - [Junior analyst](https://tryhackme.com/room/jrsecanalystintrouxo)
 
-- *[Network defense essentials](https://codered.eccouncil.org/courseVideo/network-defense-essentials?logged=true)
+- [Network defense essentials](https://codered.eccouncil.org/courseVideo/network-defense-essentials?logged=true)
 
 * Frameworks
     - [Pyramid of pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
