@@ -96,7 +96,7 @@ In this part we will perform the basic audit of an operating system, the boot pr
 Well, a lot of blabla, it's time to focus on the tools
 
 * SNORT is an open-source Network Intrusion Detection and Prevention System (NIDS/NIPS). This IPS uses a set of rules that help identify malicious activity and generate alerts for users.
-    - Intro (video) : [Intro IDS](https://youtu.be/ClXsXsleof4) ,[Intro Snort](https://www.youtube.com/watch?v=8lOTUqfkAhQ), [Setting](https://youtu.be/U6xMp-MIEfA), [IDS with Snort](https://youtu.be/Gh0sweT-G30)
+    - Intro (video) : [Intro IDS](https://youtu.be/ClXsXsleof4) ,[Intro Snort](https://www.youtube.com/watch?v=8lOTUqfkAhQ), [Setting](https://youtu.be/U6xMp-MIEfA), [Snorpy](http://snorpy.cyb3rs3c.net/), [IDS with Snort](https://youtu.be/Gh0sweT-G30)
     - [Snort basics](https://tryhackme.com/room/snort)
     - [Snort challenge](https://tryhackme.com/room/snortchallenges2)
     - [Snort doc](https://www.snort.org/documents)
